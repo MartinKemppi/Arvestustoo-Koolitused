@@ -1,0 +1,38 @@
+Kasutaja
+id int primary key autoincrement
+kasutajanimi string
+kasutajasalasona string
+roll int
+
+Roll
+id int primary key autoincrement
+rollnimi string
+
+Koolitus
+id int primary key autoincrement
+koolitusnimi string
+opetaja string
+kuupaev string/datetime
+hind int
+
+Opetaja
+id int primary key autoincrement
+opetajanimi string (Marina Oleinik / MarinaO)
+roll int
+
+Näided:
+
+Kasutaja: 1, MaximPL, *****, 1
+Kasutaja: 2, Admin, *****, 2
+Kasutaja: 3, MarinaO, ******, 3
+Kasutaja: 4, IrinaM, ******, 3
+
+Roll: 1, user
+Roll: 2, admin
+Roll: 3, opetaja
+
+Koolitus: 1, SQL, MarinaO, 01-09-2024, 1650
+Koolitus: 2, PHP, IrinaM, 01-09-2024, 1650
+
+Opetaja: 1, MarinaO, 3
+Opetaja: 2, IrinaM, 3
