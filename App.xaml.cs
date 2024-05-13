@@ -1,11 +1,30 @@
-﻿namespace Koolitused;
+﻿using Koolitused.Model;
+using Koolitused.Views;
 
-public partial class App : Application
+namespace Koolitused
 {
-	public App()
-	{
-		InitializeComponent();
+    public partial class App : Application
+    {
+        public const string DATABASE_NAME = "koolitused.db";
+        public static KoolitusRepository database;
+        public static KoolitusRepository Database
+        {
+            get
+            {
+                if (database == null)
+                {
+                    database = new KoolitusRepository(
+                        Path.Combine(
+                            Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), DATABASE_NAME));
+                }
+                return database;
+            }
+        }
+        public App()
+        {
+            InitializeComponent();
 
-		MainPage = new AppShell();
-	}
+            MainPage = new NavigationPage(new DBKoolitusedPage());
+        }
+    }
 }

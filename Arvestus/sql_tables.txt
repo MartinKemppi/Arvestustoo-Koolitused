@@ -1,4 +1,4 @@
-Kasutaja
+﻿Kasutaja
 id int primary key autoincrement
 kasutajanimi string
 kasutajasalasona string
