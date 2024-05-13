@@ -1,0 +1,32 @@
+MainPage
+
+Logo Img
+Button Login / Register / Koolitused / Info
+
+LoginPage
+
+Entry Username & pass
+Button RemindAccount / Login / Cancel
+
+RemindAccount
+
+Entry Username
+Button Remind -> display Username & pass -> Close
+
+Register
+
+Entry Username / Pass 
+Button RegMe
+
+Koolitused
+
+Koolitused.GetAll (w-o ID)
+
+Info
+
+Contact info TTHK
+
+
+AdminPage
+
+Button Kasutaja / Roll / Opetaja / Koolitused -> to redact/remove/add related fields
