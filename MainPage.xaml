@@ -5,35 +5,57 @@
 
     <ScrollView>
         <VerticalStackLayout
-            Spacing="25"
             Padding="30,0"
-            VerticalOptions="Center">
+            Spacing="25"
+            VerticalOptions="Start">
 
             <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
+                Source="tthk.jpg"
+                HeightRequest="200"                
                 HorizontalOptions="Center" />
 
             <Label
-                Text="Hello, World!"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center" />
+                Text="Tööstushariduskeskus on piirkonna suurim kutsehariduskool"
+                FontSize="24"
+                VerticalOptions="Center" />
+
 
             <Label
-                Text="Welcome to .NET Multi-platform App UI"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
+                Text="Meil on võimalik omandada tipptasemel teadust infotehnoloogia valdkonnas. Meil õppides omandate oma erialal teadmisi ja saate tõeliseks spetsialistiks."
                 FontSize="18"
                 HorizontalOptions="Center" />
 
             <Button
                 x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
+                Text="Login"
+                TextColor="Black"
                 Clicked="OnCounterClicked"
-                HorizontalOptions="Center" />
+                HorizontalOptions="CenterAndExpand"
+                WidthRequest="200"/>
+
+            <Button
+                x:Name="CounterBtn"
+                Text="Registreeri"
+                TextColor="Black"
+                Clicked="OnCounterClicked"
+                HorizontalOptions="CenterAndExpand"
+                WidthRequest="200"/>
+
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="175" Margin="0,200">
+                <Button
+                    x:Name="Kursid"
+                    Text="Kursid"
+                    TextColor="Black"
+                    WidthRequest="100"
+                    Clicked="OnCounterClicked" />
+
+                <Button
+                    x:Name="Info"
+                    Text="Info"
+                    TextColor="Black"
+                    WidthRequest="100"
+                    Clicked="OnCounterClicked" />
+            </HorizontalStackLayout>
 
         </VerticalStackLayout>
     </ScrollView>

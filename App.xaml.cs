@@ -24,7 +24,7 @@ namespace Koolitused
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new DBKoolitusedPage());
+            MainPage = new NavigationPage(new MainPage());
         }
     }
 }
