@@ -26,7 +26,22 @@ Info
 
 Contact info TTHK
 
-
 AdminPage
 
 Button Kasutaja / Roll / Opetaja / Koolitused -> to redact/remove/add related fields
+
+Regkursile
+
+id
+nimi
+perenimi
+kursId
+virtual koolitus kursid
+KasutajaNimi
+
+
+Minukursused
+
+string Kasutaja -> dbo.Kasutajanimi
+
+regkurs -> nimi, perenimi, kursid.Koolitusnimi
