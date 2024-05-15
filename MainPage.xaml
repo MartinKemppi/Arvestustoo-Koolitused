@@ -26,7 +26,7 @@
                 HorizontalOptions="Center" />
 
             <Button
-                x:Name="CounterBtn"
+                x:Name="Login"
                 Text="Login"
                 TextColor="Black"
                 Clicked="OnCounterClicked"
@@ -34,7 +34,7 @@
                 WidthRequest="200"/>
 
             <Button
-                x:Name="CounterBtn"
+                x:Name="Registreeri"
                 Text="Registreeri"
                 TextColor="Black"
                 Clicked="OnCounterClicked"
