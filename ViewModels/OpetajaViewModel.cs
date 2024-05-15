@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Koolitused.ViewModels
 {
-    internal class KasutajaViewModel
+    internal class OpetajaViewModel
     {
     }
 }

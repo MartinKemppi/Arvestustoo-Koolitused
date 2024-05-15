@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SQLite;
 
-namespace Koolitused.Model
+namespace Koolitused.Models
 {
     public class Roll
     {

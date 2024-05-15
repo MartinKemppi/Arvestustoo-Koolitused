@@ -4,8 +4,8 @@ namespace Koolitused.Views;
 
 public partial class KasutajaPage : ContentPage
 {
-    public KastuajaViewModel ViewModel { get; private set; }
-    public KasutajaPage(KastuajaViewModel vm)
+    public KasutajaViewModel ViewModel { get; private set; }
+    public KasutajaPage(KasutajaViewModel vm)
     {
         InitializeComponent();
         ViewModel = vm;

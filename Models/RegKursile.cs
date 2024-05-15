@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Koolitused.Model
+namespace Koolitused.Models
 {
     public class RegKursile
     {

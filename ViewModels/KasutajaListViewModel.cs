@@ -1,74 +1,64 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Koolitused.Models;
+using System.Windows.Input;
+using Koolitused.Views;
 
 namespace Koolitused.ViewModels
 {
-    public class FriendViewModel : INotifyPropertyChanged
+    public class KasutajaListViewModel
     {
+        public ObservableCollection<KasutajaViewModel> Kasutaja { get; set; }
         public event PropertyChangedEventHandler PropertyChanged;
-        FriendsListViewModel flvm;
-        public Friend Friend { get; set; }
-        public FriendViewModel()
+        public ICommand CreateKasutajaCommand { get; protected set; }
+        public ICommand DeleteKasutajaCommand { get; protected set; }
+        public ICommand SaveKasutajaCommand { get; protected set; }
+        public ICommand BackCommand { get; protected set; }
+        KasutajaViewModel selectedKasutaja;
+        public INavigation Navigation { get; set; }
+        public KasutajaListViewModel()
         {
-            Friend = new Friend();
+            Kasutaja = new ObservableCollection<KasutajaViewModel>();
+            CreateKasutajaCommand = new Command(CreateKasutaja);
+            DeleteKasutajaCommand = new Command(DeleteKasutaja);
+            SaveKasutajaCommand = new Command(SaveKasutaja);
+            BackCommand = new Command(Back);
         }
-        public FriendsListViewModel FriendsListViewModel
+        public KasutajaViewModel SelectedFriend
         {
-            get { return flvm; }
+            get { return selectedKasutaja; }
             set
             {
-                if (flvm == value) return;
-                flvm = value;
-                OnPropertyChanged("FriendsListViewModel");
+                if (selectedKasutaja == value) return;
+                KasutajaViewModel temp = value;
+                selectedKasutaja = null;
+                OnPropertyChanged("SelectedFriend");
+                Navigation.PushAsync(new KasutajaPage(temp));
             }
         }
-        public string Name
-        {
-            get { return Friend.Name; }
-            set
-            {
-                if (Friend.Name == value) return;
-                Friend.Name = value;
-                OnPropertyChanged("Name");
-            }
-        }
-        public string Email
-        {
-            get { return Friend.Email; }
-            set
-            {
-                if (Friend.Email == value) return;
-                Friend.Email = value;
-                OnPropertyChanged("Email");
-            }
-        }
-        public string Phone
-        {
-            get { return Friend.Phone; }
-            set
-            {
-                if (Friend.Phone == value) return;
-                Friend.Phone = value;
-                OnPropertyChanged("Phone");
-            }
-        }
-        public bool IsValid
-        {
-            get
-            {
-                return new string[] { Name, Email, Phone }.Any(x => !string.IsNullOrEmpty(x?.Trim()));
-            }
-        }
-
         protected void OnPropertyChanged(string propName)
         {
             if (PropertyChanged == null) return;
             PropertyChanged(this, new PropertyChangedEventArgs(propName));
         }
+        private void CreateKasutaja() => Navigation.PushAsync(new KasutajaPage(new KasutajaViewModel() { KasutajaListViewModel = this }));
+        private void Back() => Navigation.PopAsync();
+        private void SaveKasutaja(object friendObj)
+        {
+            if (friendObj is not KasutajaViewModel friend || friend == null || !friend.IsValid || Kasutaja.Contains(friend)) return;
+            Kasutaja.Add(friend);
+            Back();
+        }
+        private void DeleteKasutaja(object friendObj)
+        {
+            if (friendObj is not KasutajaViewModel friend || friend == null) return;
+            Kasutaja.Remove(friend);
+            Back();
+        }
+
     }
 }
