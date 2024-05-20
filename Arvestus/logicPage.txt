@@ -45,3 +45,11 @@ Minukursused
 string Kasutaja -> dbo.Kasutajanimi
 
 regkurs -> nimi, perenimi, kursid.Koolitusnimi
+
+
+Lisa peab
+
+Done:	register -> check if user exist -> dont allow to create
+		register -> password logic -> 8 char w sym + num
+		login -> session
+		login -> change page

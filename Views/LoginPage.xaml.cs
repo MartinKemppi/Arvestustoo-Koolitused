@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.Maui.Controls;
 using Koolitused.Models;
 using Koolitused.Services;
@@ -22,7 +22,7 @@ namespace Koolitused.Views
 
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
-                await DisplayAlert("Error", "Please enter both username and password.", "OK");
+                await DisplayAlert("Viga", "Palun sisestage kasutajanimi ja salasõna.", "OK");
                 return;
             }
 
@@ -30,11 +30,13 @@ namespace Koolitused.Views
 
             if (user != null)
             {
-                await Navigation.PushAsync(new MainPage());
+                SessionManager.SetSession(username);
+
+                await Navigation.PushAsync(new LogitudPage());
             }
             else
             {
-                await DisplayAlert("Error", "Invalid username or password.", "OK");
+                await DisplayAlert("Viga", "Vale kasutajanimi või salasõna", "OK");
             }
         }
 

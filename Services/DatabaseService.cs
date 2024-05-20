@@ -26,5 +26,12 @@ namespace Koolitused.Services
             return _database.Table<Kasutaja>()
                             .FirstOrDefaultAsync(u => u.Kasutajanimi == username && u.Kasutajasalasona == password);
         }
+        public Task<bool> UserExistsAsync(string kasutajanimi)
+        {
+            return _database.Table<Kasutaja>()
+                            .Where(u => u.Kasutajanimi == kasutajanimi)
+                            .FirstOrDefaultAsync()
+                            .ContinueWith(t => t.Result != null);
+        }
     }
 }
