@@ -25,25 +25,32 @@
                 <Label
                     Text="Palun Sisestage Nimi ja Salasõna"
                     FontSize="20"
-                    HorizontalOptions="CenterAndExpand" />
+                    HorizontalOptions="CenterAndExpand"
+                    TextColor="Black"/>
                 <Entry
+                    x:Name="UsernameEntry"
                     Placeholder="Nimi"
                     FontSize="18"
-                    HorizontalOptions="FillAndExpand"/>
+                    HorizontalOptions="FillAndExpand"
+                    TextColor="Black"/>
                 <Entry
                     x:Name="Salasona"
                     Placeholder="Salasõna"
                     FontSize="18"
                     HorizontalOptions="FillAndExpand"
-                    IsPassword="True"/>
+                    IsPassword="True"
+                    TextColor="Black"/>
                 <HorizontalStackLayout>
-                    <CheckBox
-                        x:Name="ShowPasswordCheckBox"
-                        VerticalOptions="StartAndExpand"
-                        CheckedChanged="OnShowPasswordCheckedChanged"/>
+                    <Switch
+                        x:Name="SalasonaSwitch"
+                        OnColor="Black"
+                        ThumbColor="Black"
+                        VerticalOptions="Center"
+                        Toggled="OnShowPasswordToggled"/>
                     <Label
                         Text="Näita Salasõna"
-                        VerticalOptions="Center"/>
+                        VerticalOptions="Center"
+                        TextColor="Black"/>
                 </HorizontalStackLayout>
                 <Button
                     x:Name="Login"

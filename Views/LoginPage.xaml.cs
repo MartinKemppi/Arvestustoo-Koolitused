@@ -1,18 +1,46 @@
-namespace Koolitused.Views;
+using System;
+using Microsoft.Maui.Controls;
+using Koolitused.Models;
+using Koolitused.Services;
 
-public partial class LoginPage : ContentPage
+namespace Koolitused.Views
 {
-	public LoginPage()
-	{
-		InitializeComponent();
-	}
-	private async void OnLoginClicked(object sender, EventArgs e)
-	{
-        await Navigation.PushAsync(new MainPage());
-
-    }
-    private void OnShowPasswordCheckedChanged(object sender, CheckedChangedEventArgs e)
+    public partial class LoginPage : ContentPage
     {
-        Salasona.IsPassword = !e.Value;
+        private readonly DatabaseService _databaseService;
+
+        public LoginPage()
+        {
+            InitializeComponent();
+            _databaseService = new DatabaseService();
+        }
+
+        private async void OnLoginClicked(object sender, EventArgs e)
+        {
+            string username = UsernameEntry.Text;
+            string password = Salasona.Text;
+
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            {
+                await DisplayAlert("Error", "Please enter both username and password.", "OK");
+                return;
+            }
+
+            var user = await _databaseService.GetUserAsync(username, password);
+
+            if (user != null)
+            {
+                await Navigation.PushAsync(new MainPage());
+            }
+            else
+            {
+                await DisplayAlert("Error", "Invalid username or password.", "OK");
+            }
+        }
+
+        private void OnShowPasswordToggled(object sender, ToggledEventArgs e)
+        {
+            Salasona.IsPassword = !e.Value;
+        }
     }
 }

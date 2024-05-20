@@ -25,22 +25,26 @@
                         Text="Sõpruse pst 182"
                         VerticalOptions="Start" 
                         HorizontalOptions="Center" 
-                        FontSize="18"/>
+                        FontSize="18"
+                        TextColor="Black"/>
                     <Label 
                         Text="Telefon: (+372) 654 2833"
                         VerticalOptions="Start" 
                         HorizontalOptions="Center" 
-                        FontSize="18"/>
+                        FontSize="18"
+                        TextColor="Black"/>
                     <Label 
                         Text="Vastuvõtuinfo: vastuvott@tthk.ee"
                         VerticalOptions="Start" 
                         HorizontalOptions="Center" 
-                        FontSize="18"/>
+                        FontSize="18"
+                        TextColor="Black"/>
                     <Label 
                         Text="E-post: info@tthk.ee"
                         VerticalOptions="Start" 
                         HorizontalOptions="Center" 
-                        FontSize="18"/>
+                        FontSize="18"
+                        TextColor="Black"/>
                 </VerticalStackLayout>
             </Frame>
         </VerticalStackLayout>
