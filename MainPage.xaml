@@ -3,59 +3,53 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Koolitused.MainPage">
 
-        <VerticalStackLayout
+    <VerticalStackLayout
             Padding="30,0"
             Spacing="25"
             VerticalOptions="Start">
 
-            <Image
+        <Image
                 Source="tthk.jpg"
                 HeightRequest="200"                
                 HorizontalOptions="Center" />
 
-            <Label
+        <Label
                 Text="Tööstushariduskeskus on piirkonna suurim kutsehariduskool"
                 FontSize="24"
                 VerticalOptions="Center" />
 
 
-            <Label
+        <Label
                 Text="Meil on võimalik omandada tipptasemel teadust infotehnoloogia valdkonnas. Meil õppides omandate oma erialal teadmisi ja saate tõeliseks spetsialistiks."
                 FontSize="18"
                 HorizontalOptions="Center" />
 
-            <Button
+        <Button
                 x:Name="Login"
                 Text="Login"
                 TextColor="Black"
-                Clicked="OnCounterClicked"
+                Clicked="OnLoginClicked"
                 HorizontalOptions="CenterAndExpand"
                 WidthRequest="200"/>
 
-            <Button
+        <Button
                 x:Name="Registreeri"
                 Text="Registreeri"
                 TextColor="Black"
-                Clicked="OnCounterClicked"
+                Clicked="OnRegClicked"
                 HorizontalOptions="CenterAndExpand"
                 WidthRequest="200"/>
-
-            <HorizontalStackLayout HorizontalOptions="Center" Spacing="175" Margin="0,200">
-                <Button
-                    x:Name="Kursid"
-                    Text="Kursid"
-                    TextColor="Black"
-                    WidthRequest="100"
-                    Clicked="OnCounterClicked" />
-
-                <Button
-                    x:Name="Info"
-                    Text="Info"
-                    TextColor="Black"
-                    WidthRequest="100"
-                    Clicked="OnCounterClicked" />
-            </HorizontalStackLayout>
-
-        </VerticalStackLayout>
-
+        <Button
+                x:Name="Kursid"
+                Text="Kursid"
+                TextColor="Black"
+                WidthRequest="100"
+                Clicked="OnKursClicked" />
+        <Button
+                x:Name="Info"
+                Text="Info"
+                TextColor="Black"
+                WidthRequest="100"
+                Clicked="OnInfoClicked" />
+    </VerticalStackLayout>
 </ContentPage>

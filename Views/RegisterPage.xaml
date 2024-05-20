@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Koolitused.Views.RegisterPage"
+             Title="Registreerimine">
+    <VerticalStackLayout
+        Padding="30,0"
+        Spacing="25"
+        VerticalOptions="Start">
+
+        <Image
+            Source="tthk.jpg"
+            HeightRequest="240"                
+            HorizontalOptions="Center" />
+        <Label
+            Text="Registreerimine"
+            FontSize="36"
+            HorizontalOptions="CenterAndExpand" />
+        <Frame 
+            BorderColor="LightGray"
+            CornerRadius="10"
+            Padding="25"
+            Margin="5">
+            <VerticalStackLayout>
+                <Label
+                Text="Palun Sisestage Nimi ja Salasõna"
+                FontSize="20"
+                HorizontalOptions="Center" />
+            <Entry
+                Placeholder="Nimi"
+                FontSize="18"
+                VerticalOptions="Center"/>
+            <Entry
+                x:Name="Salasona"
+                Placeholder="Salasõna"
+                FontSize="18"
+                VerticalOptions="Center"
+                IsPassword="True"/>
+                <HorizontalStackLayout>
+                    <CheckBox
+                        x:Name="RegShowPasswordCheckBox"
+                        VerticalOptions="StartAndExpand"
+                        CheckedChanged="OnShowPasswordCheckedChanged"/>
+                    <Label
+                        Text="Näita Salasõna"
+                        VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+                <Button
+                    x:Name="Registreeri"
+                    Text="Registreeri"
+                    Clicked="OnRegistreeriClicked"/>
+            </VerticalStackLayout>
+        </Frame>
+    </VerticalStackLayout>
+</ContentPage>
