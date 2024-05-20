@@ -5,14 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using SQLite;
 
-namespace Koolitused.Model
+namespace Koolitused.Models
 {
-    public class Kasutaja
+    public class Roll
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
-        public string Kasutajanimi { get; set; }
-        public string Kasutajasalasona { get; set; }
-        public int Roll { get; set; }
+        public string Rollnimi { get; set; }
     }
 }
