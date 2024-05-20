@@ -27,17 +27,17 @@ namespace Koolitused.ViewModels
                 OnPropertyChanged("KasutajaListViewModel");
             }
         }
-        public string Name
+        public string Kasutajanimi
         {
             get { return Kasutaja.Kasutajanimi; }
             set
             {
                 if (Kasutaja.Kasutajanimi == value) return;
                 Kasutaja.Kasutajanimi = value;
-                OnPropertyChanged("Name");
+                OnPropertyChanged("Kasutajanimi");
             }
         }
-        public string Pass
+        public string Kasutajasalasona
         {
             get { return Kasutaja.Kasutajasalasona; }
             set
@@ -47,21 +47,21 @@ namespace Koolitused.ViewModels
                 OnPropertyChanged("Kasutajasalasona");
             }
         }
-        public string Phone
+        public int Roll
         {
-            get { return Friend.Phone; }
+            get { return Kasutaja.Roll; }
             set
             {
-                if (Friend.Phone == value) return;
-                Friend.Phone = value;
-                OnPropertyChanged("Phone");
+                if (Kasutaja.Roll == value) return;
+                Kasutaja.Roll = value;
+                OnPropertyChanged("Roll");
             }
         }
         public bool IsValid
         {
             get
             {
-                return new string[] { Name, Email, Phone }.Any(x => !string.IsNullOrEmpty(x?.Trim()));
+                return new string[] { Kasutajanimi, Kasutajasalasona, Roll.ToString() }.Any(x => !string.IsNullOrEmpty(x?.Trim()));
             }
         }
 

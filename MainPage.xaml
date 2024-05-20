@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Koolitused.MainPage">
 
-    <ScrollView>
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25"
@@ -58,6 +57,5 @@
             </HorizontalStackLayout>
 
         </VerticalStackLayout>
-    </ScrollView>
 
 </ContentPage>

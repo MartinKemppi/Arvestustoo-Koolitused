@@ -1,4 +1,4 @@
-using Koolitused.Model;
+using Koolitused.Models;
 
 namespace Koolitused.Views;
 
