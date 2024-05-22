@@ -24,7 +24,7 @@ public partial class LogitudPage : ContentPage
     }
     private async void OnKursClicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new RegisterPage());
+        await Navigation.PushAsync(new KursPage());
     }
     private async void OnInfoClicked(object sender, EventArgs e)
     {

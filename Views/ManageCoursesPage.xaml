@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Koolitused.Views.ManageCoursesPage"
+             Title="ManageCoursesPage">
+    <VerticalStackLayout
+        Padding="30,0"
+        Spacing="25"
+        VerticalOptions="Start">
+
+        <Label
+            Text="Halda kursusi"
+            FontSize="36"
+            HorizontalOptions="CenterAndExpand" />
+
+        <Button
+            Text="Lisa kursus"
+            Clicked="OnAddCourseClicked"
+            HorizontalOptions="CenterAndExpand"
+            WidthRequest="200"/>
+
+        <ListView x:Name="CoursesListView"
+                  VerticalOptions="FillAndExpand">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding Nimi}" VerticalOptions="Center"/>
+                            <Button Text="Muuda" Clicked="OnEditCourseClicked"/>
+                            <Button Text="Kustuta" Clicked="OnDeleteCourseClicked"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </VerticalStackLayout>
+</ContentPage>
