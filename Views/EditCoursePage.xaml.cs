@@ -49,7 +49,8 @@ public partial class EditCoursePage : ContentPage
         }
         else
         {
-            await _databaseService.UpdateCourseAsync(_course);
+            await _databaseService.
+                UpdateCourseAsync(_course);
         }
 
         await Navigation.PopAsync();
