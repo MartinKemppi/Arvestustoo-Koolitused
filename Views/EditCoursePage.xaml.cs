@@ -18,8 +18,10 @@ public partial class EditCoursePage : ContentPage
         if (course != null)
         {
             _course = course;
-            CourseNameEntry.Text = course.Nimi;
-            CourseDescriptionEntry.Text = course.Kirjeldus;
+            CourseNameEntry.Text = course.Koolitusnimi;
+            TeacherEntry.Text = course.Opetaja;
+            DateEntry.Text = course.Kuupaev;
+            PriceEntry.Text = course.Hind.ToString();
         }
         else
         {
@@ -29,12 +31,15 @@ public partial class EditCoursePage : ContentPage
 
     private async void OnSaveCourseClicked(object sender, EventArgs e)
     {
-        _course.Nimi = CourseNameEntry.Text;
-        _course.Kirjeldus = CourseDescriptionEntry.Text;
+        _course.Koolitusnimi = CourseNameEntry.Text;
+        _course.Opetaja = TeacherEntry.Text;
+        _course.Kuupaev = DateEntry.Text;
+        int.TryParse(PriceEntry.Text, out int price);
+        _course.Hind = price;
 
-        if (string.IsNullOrEmpty(_course.Nimi) || string.IsNullOrEmpty(_course.Kirjeldus))
+        if (string.IsNullOrEmpty(_course.Koolitusnimi) || string.IsNullOrEmpty(_course.Opetaja) || string.IsNullOrEmpty(_course.Kuupaev) || _course.Hind <= 0)
         {
-            await DisplayAlert("Viga", "Palun täitke kõik väljad.", "OK");
+            await DisplayAlert("Viga", "Palun täitke kõik väljad õigesti.", "OK");
             return;
         }
 

@@ -14,7 +14,9 @@
             HorizontalOptions="CenterAndExpand" />
 
         <Entry x:Name="CourseNameEntry" Placeholder="Kursuse nimi"/>
-        <Entry x:Name="CourseDescriptionEntry" Placeholder="Kursuse kirjeldus"/>
+        <Entry x:Name="TeacherEntry" Placeholder="Õpetaja"/>
+        <Entry x:Name="DateEntry" Placeholder="Kuupäev"/>
+        <Entry x:Name="PriceEntry" Placeholder="Hind" Keyboard="Numeric"/>
 
         <Button
             Text="Salvesta"
