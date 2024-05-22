@@ -2,7 +2,6 @@ using Microsoft.Maui.Controls;
 using Koolitused.Models;
 using Koolitused.Services;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Koolitused.Views;
@@ -27,6 +26,7 @@ public partial class ManageCoursesPage : ContentPage
     private async void OnAddCourseClicked(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new EditCoursePage());
+        LoadCourses();
     }
 
     private async void OnEditCourseClicked(object sender, EventArgs e)
@@ -49,5 +49,4 @@ public partial class ManageCoursesPage : ContentPage
             LoadCourses();
         }
     }
-
 }
