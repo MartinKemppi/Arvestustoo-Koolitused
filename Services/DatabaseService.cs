@@ -15,6 +15,7 @@ namespace Koolitused.Services
             var dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Koolitused.db3");
             _database = new SQLiteAsyncConnection(dbPath);
             _database.CreateTableAsync<Kasutaja>().Wait();
+            _database.CreateTableAsync<Koolitus>().Wait();
         }
 
         public Task<int> SaveUserAsync(Kasutaja user)
@@ -27,6 +28,7 @@ namespace Koolitused.Services
             return _database.Table<Kasutaja>()
                             .FirstOrDefaultAsync(u => u.Kasutajanimi == username && u.Kasutajasalasona == password);
         }
+
         public Task<bool> UserExistsAsync(string kasutajanimi)
         {
             return _database.Table<Kasutaja>()
