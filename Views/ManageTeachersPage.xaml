@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Koolitused.Views.ManageTeachersPage"
+             Title="ManageTeachersPage">
+    <VerticalStackLayout
+        Padding="30,0"
+        Spacing="25"
+        VerticalOptions="Start">
+
+        <Label
+            Text="Halda õpetajad"
+            FontSize="36"
+            HorizontalOptions="CenterAndExpand" />
+
+        <Button
+            Text="Loo uus õpetaja"
+            Clicked="OnCreateTeacherClicked"
+            HorizontalOptions="CenterAndExpand"
+            WidthRequest="200"/>
+
+        <ListView x:Name="TeachersListView"
+          HasUnevenRows="True"
+          VerticalOptions="FillAndExpand">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10">
+                            <Label Text="{Binding Opetajanimi}" FontSize="24" VerticalOptions="Center" />
+                            <Label Text="{Binding Roll}" FontSize="18" VerticalOptions="Center" />
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                                <Button Text="Muuda" Clicked="OnEditTeacherClicked" HorizontalOptions="End" />
+                                <Button Text="Kustuta" Clicked="OnDeleteTeacherClicked" HorizontalOptions="End" />
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </VerticalStackLayout>
+</ContentPage>

@@ -9,6 +9,7 @@ namespace Koolitused.Models
 {
     public class Opetaja
     {
+        [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
         public string Opetajanimi { get; set; }
         public int Roll { get; set; }

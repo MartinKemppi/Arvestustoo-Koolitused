@@ -4,44 +4,42 @@
              x:Class="Koolitused.Views.ManageCoursesPage"
              Title="ManageCoursesPage">
     <VerticalStackLayout
-        Padding="30,0"
-        Spacing="25"
-        VerticalOptions="Start">
+    Padding="30,0"
+    Spacing="25"
+    VerticalOptions="StartAndExpand">
 
         <Label
-            Text="Halda kursusi"
-            FontSize="36"
-            HorizontalOptions="CenterAndExpand" />
-
-        <Button
-            Text="Lisa kursus"
-            Clicked="OnAddCourseClicked"
-            HorizontalOptions="CenterAndExpand"
-            WidthRequest="200"/>
+        Text="Kurside loend"
+        FontSize="36"
+        HorizontalOptions="CenterAndExpand" />
 
         <ListView x:Name="CoursesListView"
-                  VerticalOptions="FillAndExpand">
+              HasUnevenRows="True"
+              VerticalOptions="FillAndExpand">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Frame Margin="10"
-                               Padding="10"
-                               BorderColor="Gray"
-                               CornerRadius="5">
-                            <StackLayout>
-                                <Label Text="{Binding Koolitusnimi}" FontSize="24" VerticalOptions="Center" />
-                                <Label Text="{Binding Opetaja}" FontSize="18" VerticalOptions="Center" />
-                                <Label Text="{Binding Kuupaev}" FontSize="18" VerticalOptions="Center" />
-                                <Label Text="{Binding Hind, StringFormat='{0} €'}" FontSize="18" VerticalOptions="Center" />
-                                <StackLayout Orientation="Horizontal" HorizontalOptions="End">
-                                    <Button Text="Muuda" Clicked="OnEditCourseClicked" HorizontalOptions="End" />
-                                    <Button Text="Kustuta" Clicked="OnDeleteCourseClicked" HorizontalOptions="End" />
-                                </StackLayout>
+                        <StackLayout Padding="10">
+                            <Label Text="{Binding Koolitusnimi}" FontSize="24" VerticalOptions="Center" />
+                            <Label Text="{Binding Opetaja}" FontSize="18" VerticalOptions="Center" />
+                            <Label Text="{Binding Kuupaev}" FontSize="18" VerticalOptions="Center" />
+                            <Label Text="{Binding Hind, StringFormat='{0} €'}" FontSize="18" VerticalOptions="Center" />
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                                <Button Text="Muuda" Clicked="OnEditCourseClicked" HorizontalOptions="End" />
+                                <Button Text="Kustuta" Clicked="OnDeleteCourseClicked" HorizontalOptions="End" />
                             </StackLayout>
-                        </Frame>
+                        </StackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
+        <Button
+        Text="Lisa kursus"
+        Clicked="OnAddCourseClicked"
+        HorizontalOptions="CenterAndExpand"
+        WidthRequest="200"
+        VerticalOptions="End"/>
+
     </VerticalStackLayout>
 </ContentPage>

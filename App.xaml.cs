@@ -1,5 +1,6 @@
 ﻿using Koolitused.Models;
 using Koolitused.Views;
+using Koolitused.Services;
 
 namespace Koolitused
 {
@@ -24,7 +25,18 @@ namespace Koolitused
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new NavigationPage(new AdminPage());
         }
+
+        //protected override async void OnStart()
+        //{
+        //    base.OnStart();
+
+        //    // Создайте экземпляр DatabaseService
+        //    var databaseService = new DatabaseService();
+
+        //    // Вызовите метод DropOpetajaTableAsync
+        //    await databaseService.DropOpetajaTableAsync();
+        //}
     }
 }

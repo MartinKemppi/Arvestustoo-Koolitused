@@ -1,8 +1,5 @@
-using Microsoft.Maui.Controls;
-using Koolitused.Models;
+﻿using Koolitused.Models;
 using Koolitused.Services;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace Koolitused.Views;
 
@@ -11,15 +8,15 @@ public partial class ManageCoursesPage : ContentPage
     private readonly DatabaseService _databaseService;
 
     public ManageCoursesPage()
-    {
-        InitializeComponent();
+	{
+		InitializeComponent();
         _databaseService = new DatabaseService();
         LoadCourses();
     }
 
     private async void LoadCourses()
     {
-        List<Koolitus> courses = await _databaseService.GetCoursesAsync();
+        var courses = await _databaseService.GetCoursesAsync();
         CoursesListView.ItemsSource = courses;
     }
 
@@ -35,7 +32,15 @@ public partial class ManageCoursesPage : ContentPage
         var course = button?.BindingContext as Koolitus;
         if (course != null)
         {
-            await Navigation.PushAsync(new EditCoursePage(course));
+            bool confirmed = await DisplayAlert("Muuda kursus", $"Kas soovite muuta kursust '{course.Koolitusnimi}'?", "Jah", "Ei");
+            if (confirmed)
+            {
+                await Navigation.PushAsync(new EditCoursePage(course));
+            }
+        }
+        else
+        {
+            await DisplayAlert("Viga", "Palun valige kursus, mida muuta.", "OK");
         }
     }
 
@@ -45,8 +50,16 @@ public partial class ManageCoursesPage : ContentPage
         var course = button?.BindingContext as Koolitus;
         if (course != null)
         {
-            await _databaseService.DeleteCourseAsync(course);
-            LoadCourses();
+            bool confirmed = await DisplayAlert("Kustuta kursus", $"Kas soovite kustutada kursust '{course.Koolitusnimi}'?", "Jah", "Ei");
+            if (confirmed)
+            {
+                await _databaseService.DeleteCourseAsync(course);
+                LoadCourses();
+            }
+        }
+        else
+        {
+            await DisplayAlert("Viga", "Palun valige kursus, mida kustutada.", "OK");
         }
     }
 }

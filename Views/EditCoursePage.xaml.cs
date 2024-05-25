@@ -1,4 +1,4 @@
-using Microsoft.Maui.Controls;
+ï»¿using Microsoft.Maui.Controls;
 using Koolitused.Models;
 using Koolitused.Services;
 using System;
@@ -20,7 +20,7 @@ public partial class EditCoursePage : ContentPage
             _course = course;
             CourseNameEntry.Text = course.Koolitusnimi;
             TeacherEntry.Text = course.Opetaja;
-            DateEntry.Text = course.Kuupaev;
+            CourseDatePicker.Date = DateTime.Parse(course.Kuupaev);
             PriceEntry.Text = course.Hind.ToString();
         }
         else
@@ -33,13 +33,13 @@ public partial class EditCoursePage : ContentPage
     {
         _course.Koolitusnimi = CourseNameEntry.Text;
         _course.Opetaja = TeacherEntry.Text;
-        _course.Kuupaev = DateEntry.Text;
+        _course.Kuupaev = CourseDatePicker.Date.ToString("yyyy-MM-dd");
         int.TryParse(PriceEntry.Text, out int price);
         _course.Hind = price;
 
         if (string.IsNullOrEmpty(_course.Koolitusnimi) || string.IsNullOrEmpty(_course.Opetaja) || string.IsNullOrEmpty(_course.Kuupaev) || _course.Hind <= 0)
         {
-            await DisplayAlert("Viga", "Palun täitke kõik väljad õigesti.", "OK");
+            await DisplayAlert("Viga", "Palun tÃ¤itke kÃµik vÃ¤ljad Ãµigesti.", "OK");
             return;
         }
 
@@ -49,8 +49,7 @@ public partial class EditCoursePage : ContentPage
         }
         else
         {
-            await _databaseService.
-                UpdateCourseAsync(_course);
+            await _databaseService.UpdateCourseAsync(_course);
         }
 
         await Navigation.PopAsync();

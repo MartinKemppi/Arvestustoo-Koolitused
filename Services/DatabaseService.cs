@@ -16,6 +16,7 @@ namespace Koolitused.Services
             _database = new SQLiteAsyncConnection(dbPath);
             _database.CreateTableAsync<Kasutaja>().Wait();
             _database.CreateTableAsync<Koolitus>().Wait();
+            _database.CreateTableAsync<Opetaja>().Wait();
         }
 
         public Task<int> SaveUserAsync(Kasutaja user)
@@ -56,5 +57,31 @@ namespace Koolitused.Services
         {
             return _database.DeleteAsync(course);
         }
+
+        public Task<int> SaveTeacherAsync(Opetaja teacher)
+        {
+            return _database.InsertAsync(teacher);
+        }
+
+        public Task<int> UpdateTeacherAsync(Opetaja teacher)
+        {
+            return _database.UpdateAsync(teacher);
+        }
+
+        public Task<List<Opetaja>> GetTeachersAsync()
+        {
+            return _database.Table<Opetaja>().ToListAsync();
+        }
+
+        public Task<int> DeleteTeacherAsync(Opetaja teacher)
+        {
+            return _database.DeleteAsync(teacher);
+
+        }
+
+        //public async Task DropOpetajaTableAsync()
+        //{
+        //    await _database.DropTableAsync<Opetaja>();
+        //}
     }
 }

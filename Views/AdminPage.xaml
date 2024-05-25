@@ -23,5 +23,26 @@
             Clicked="OnManageCoursesClicked"
             HorizontalOptions="CenterAndExpand"
             WidthRequest="200"/>
+
+        <Button
+            x:Name="ManageUserButton"
+            Text="Halda kasutajad"
+            Clicked="OnManageUserClicked"
+            HorizontalOptions="CenterAndExpand"
+            WidthRequest="200"/>
+
+        <Button
+            x:Name="ManageOpetajaButton"
+            Text="Halda õpetajad"
+            Clicked="OnManageOpetajaClicked"
+            HorizontalOptions="CenterAndExpand"
+            WidthRequest="200"/>
+
+        <Button
+            x:Name="ManageRollButton"
+            Text="Halda rollid"
+            Clicked="OnManageRollClicked"
+            HorizontalOptions="CenterAndExpand"
+            WidthRequest="200"/>
     </VerticalStackLayout>
 </ContentPage>
