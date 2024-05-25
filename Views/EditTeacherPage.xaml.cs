@@ -1,66 +1,70 @@
 ﻿using Koolitused.Models;
 using Koolitused.Services;
+using Koolitused.ViewModels;
 using Microsoft.Maui.Controls;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Koolitused.Views
 {
     public partial class EditTeacherPage : ContentPage
     {
         private readonly DatabaseService _databaseService;
-        private Opetaja _teacher;
+        private bool isNewTeacher;
+        private Opetaja teacher;
 
-        public EditTeacherPage(Opetaja teacher = null)
+        public EditTeacherPage()
         {
             InitializeComponent();
+            BindingContext = new OpetajaListViewModel();
             _databaseService = new DatabaseService();
-
-            if (teacher != null)
-            {
-                _teacher = teacher;
-                LoadTeacherData();
-            }
-            else
-            {
-                _teacher = new Opetaja();
-            }
+            isNewTeacher = true;
         }
 
-        private void LoadTeacherData()
+        public EditTeacherPage(Opetaja selectedTeacher) : this()
         {
-            TeacherNameEntry.Text = _teacher.Opetajanimi;
-            RollEntry.Text = _teacher.Roll.ToString();
+            isNewTeacher = false;
+            teacher = selectedTeacher;
+            InitializePage();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            LoadRoles();
+        }
+
+        private void InitializePage()
+        {
+            TeacherNameEntry.Text = teacher?.Opetajanimi;
+            RolePicker.SelectedItem = teacher?.TeacherRole;
+        }
+
+        private async void LoadRoles()
+        {
+            List<Roll> roles = await _databaseService.GetRolesAsync();
+            RolePicker.ItemsSource = roles;
         }
 
         private async void OnSaveTeacherClicked(object sender, EventArgs e)
         {
-            _teacher.Opetajanimi = TeacherNameEntry.Text;
-            int.TryParse(RollEntry.Text, out int roll);
-            _teacher.Roll = roll;
+            Roll selectedRole = RolePicker.SelectedItem as Roll;
 
-            if (string.IsNullOrWhiteSpace(_teacher.Opetajanimi))
+            Opetaja updatedTeacher = new Opetaja
             {
-                await DisplayAlert("Viga", "Palun sisesta õpetaja nimi.", "OK");
-                return;
+                Opetajanimi = TeacherNameEntry.Text,
+                TeacherRole = selectedRole
+            };
+
+            if (isNewTeacher)
+            {
+                await _databaseService.SaveTeacherAsync(updatedTeacher);
             }
-
-            try
+            else
             {
-                if (_teacher.Id == 0)
-                {
-                    await _databaseService.SaveTeacherAsync(_teacher);
-                }
-                else
-                {
-                    await _databaseService.UpdateTeacherAsync(_teacher);
-                }
-
-                await Navigation.PopAsync();
-            }
-            catch (Exception ex)
-            {
-                await DisplayAlert("Viga", $"Andmete salvestamisel tekkis viga: {ex.Message}", "OK");
+                updatedTeacher.Id = teacher.Id;
+                await _databaseService.UpdateTeacherAsync(updatedTeacher);
             }
         }
     }

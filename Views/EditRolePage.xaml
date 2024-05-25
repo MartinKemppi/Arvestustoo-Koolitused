@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Koolitused.Views.EditRolePage"
+             Title="EditRolePage">
+    <VerticalStackLayout
+        Padding="30,0"
+        Spacing="25"
+        VerticalOptions="Start">
+
+        <Label
+            Text="Rolli andmed"
+            FontSize="36"
+            HorizontalOptions="CenterAndExpand" />
+
+        <Entry x:Name="RoleNameEntry" Placeholder="Rolli nimi"/>
+
+        <Button
+            Text="Salvesta"
+            Clicked="OnSaveRoleClicked"
+            HorizontalOptions="CenterAndExpand"
+            WidthRequest="200"/>
+    </VerticalStackLayout>
+</ContentPage>

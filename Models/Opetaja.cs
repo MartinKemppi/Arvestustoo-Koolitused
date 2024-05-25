@@ -12,6 +12,6 @@ namespace Koolitused.Models
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
         public string Opetajanimi { get; set; }
-        public int Roll { get; set; }
+        public Roll TeacherRole { get; set; }
     }
 }
