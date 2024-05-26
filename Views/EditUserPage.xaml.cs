@@ -60,6 +60,13 @@ namespace Koolitused.Views
                 return;
             }
 
+            var existingUser = await _databaseService.GetUserByUsernameAsync(_user.Kasutajanimi);
+            if (existingUser != null && existingUser.Id != _user.Id)
+            {
+                await DisplayAlert("Viga", "Kasutajanimi on juba kasutusel.", "OK");
+                return;
+            }
+
             if (_user.Id == 0)
             {
                 await _databaseService.SaveUserAsync(_user);

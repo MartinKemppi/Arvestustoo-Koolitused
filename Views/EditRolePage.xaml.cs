@@ -36,6 +36,13 @@ namespace Koolitused.Views
                 return;
             }
 
+            var existingRole = await _databaseService.GetRoleByNameAsync(roleName);
+            if (existingRole != null && existingRole.Id != _role.Id)
+            {
+                await DisplayAlert("Viga", "Rolli nimi juba olemas.", "OK");
+                return;
+            }
+
             _role.Rollnimi = roleName;
 
             try
@@ -56,5 +63,6 @@ namespace Koolitused.Views
                 await DisplayAlert("Viga", $"Tekkis viga andmete salvestamisel: {ex.Message}", "OK");
             }
         }
+
     }
 }

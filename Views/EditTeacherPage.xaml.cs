@@ -63,6 +63,13 @@ namespace Koolitused.Views
 
             try
             {
+                var existingTeacher = await _databaseService.GetTeacherByNameAsync(_teacher.Opetajanimi);
+                if (existingTeacher != null && existingTeacher.Id != _teacher.Id)
+                {
+                    await DisplayAlert("Viga", "Selline õpetaja on juba olemas.", "OK");
+                    return;
+                }
+
                 if (_teacher.Id == 0)
                 {
                     await _databaseService.SaveTeacherAsync(_teacher);
@@ -79,5 +86,6 @@ namespace Koolitused.Views
                 await DisplayAlert("Viga", $"Andmete salvestamisel tekkis viga: {ex.Message}", "OK");
             }
         }
+
     }
 }

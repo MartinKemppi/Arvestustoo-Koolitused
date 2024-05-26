@@ -77,6 +77,13 @@ namespace Koolitused.Views
                 return;
             }
 
+            var existingCourse = await _databaseService.GetCourseByNameTeacherAndDateAsync(_course.Koolitusnimi, _course.OpetajaId, _course.Kuupaev);
+            if (existingCourse != null && existingCourse.Id != _course.Id)
+            {
+                await DisplayAlert("Viga", "Selline kursus on juba olemas.", "OK");
+                return;
+            }
+
             if (_course.Id == 0)
             {
                 await _databaseService.SaveCourseAsync(_course);
@@ -88,5 +95,6 @@ namespace Koolitused.Views
 
             await Navigation.PopAsync();
         }
+
     }
 }

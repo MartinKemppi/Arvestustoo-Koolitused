@@ -48,6 +48,12 @@ namespace Koolitused.Services
         {
             return _database.UpdateAsync(user);
         }
+        public Task<Kasutaja> GetUserByUsernameAsync(string username)
+        {
+            return _database.Table<Kasutaja>()
+                            .Where(u => u.Kasutajanimi == username)
+                            .FirstOrDefaultAsync();
+        }
 
         //Koolitus
         public Task<List<Koolitus>> GetCoursesAsync()
@@ -76,7 +82,22 @@ namespace Koolitused.Services
             }
             return courseNames;
         }
+        public async Task<Koolitus> GetCourseByNameTeacherAndDateAsync(string courseName, int teacherId, string date)
+        {
+            try
+            {
+                var courseList = await _database.Table<Koolitus>()
+                    .Where(x => x.Koolitusnimi == courseName && x.OpetajaId == teacherId && x.Kuupaev == date)
+                    .ToListAsync();
 
+                return courseList.FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Ошибка при получении курса из БД: {ex.Message}");
+                return null;
+            }
+        }
 
         //Opetaja
         public Task<int> SaveTeacherAsync(Opetaja teacher)
@@ -103,6 +124,10 @@ namespace Koolitused.Services
         public async Task<Opetaja> GetTeacherByIdAsync(int teacherId)
         {
             return await _database.Table<Opetaja>().FirstOrDefaultAsync(teacher => teacher.Id == teacherId);
+        }
+        public async Task<Opetaja> GetTeacherByNameAsync(string teacherName)
+        {
+            return await _database.Table<Opetaja>().FirstOrDefaultAsync(t => t.Opetajanimi == teacherName);
         }
 
         //Roll
