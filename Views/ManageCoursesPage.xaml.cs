@@ -17,6 +17,14 @@ public partial class ManageCoursesPage : ContentPage
     private async void LoadCourses()
     {
         var courses = await _databaseService.GetCoursesAsync();
+        var teachers = await _databaseService.GetTeachersAsync();
+
+        foreach (var course in courses)
+        {
+            var teacher = teachers.FirstOrDefault(t => t.Id == course.OpetajaId);
+            course.Opetajanimi = teacher != null ? teacher.Opetajanimi : "Unknown";
+        }
+
         CoursesListView.ItemsSource = courses;
     }
 
@@ -36,6 +44,7 @@ public partial class ManageCoursesPage : ContentPage
             if (confirmed)
             {
                 await Navigation.PushAsync(new EditCoursePage(course));
+                LoadCourses();
             }
         }
         else

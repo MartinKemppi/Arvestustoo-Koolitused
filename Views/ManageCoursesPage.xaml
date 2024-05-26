@@ -21,7 +21,7 @@
                     <ViewCell>
                         <StackLayout Padding="10">
                             <Label Text="{Binding Koolitusnimi}" FontSize="24" VerticalOptions="Center" />
-                            <Label Text="{Binding Opetaja}" FontSize="18" VerticalOptions="Center" />
+                            <Label Text="{Binding Opetajanimi}" FontSize="18" VerticalOptions="Center" />
                             <Label Text="{Binding Kuupaev}" FontSize="18" VerticalOptions="Center" />
                             <Label Text="{Binding Hind, StringFormat='{0} €'}" FontSize="18" VerticalOptions="Center" />
                             <StackLayout Orientation="Horizontal" HorizontalOptions="End">

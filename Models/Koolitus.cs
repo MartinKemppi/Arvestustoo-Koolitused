@@ -12,8 +12,11 @@ namespace Koolitused.Models
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
         public string Koolitusnimi { get; set; }
-        public string Opetaja { get; set; }
+        public int OpetajaId { get; set; }
         public string Kuupaev { get; set; }
         public int Hind {  get; set; }
+
+        [Ignore]
+        public string Opetajanimi { get; set; }
     }
 }
