@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Koolitused.Views.ManageRegKursilePage"
+             Title="Halda registreeritud kursile">
+
+    <StackLayout Padding="20">
+        <Label Text="Halda registreeritud kursile" FontSize="Title" HorizontalOptions="CenterAndExpand" Margin="0,20,0,10" />
+
+        <ListView x:Name="CoursesListView" VerticalOptions="FillAndExpand" HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Vertical" Padding="10">
+                            <Label Text="{Binding Name}" FontSize="Medium" />
+                            <Label Text="{Binding Surname}" FontSize="Medium" />
+                            <Label Text="{Binding Phone}" FontSize="Medium" />
+                            <Label Text="{Binding Email}" FontSize="Medium" />
+                            <Label Text="{Binding Username}" FontSize="Medium" />
+                            <Label Text="{Binding CourseName}" FontSize="Medium" />
+                            <Button Text="Delete" Clicked="OnDeleteRegistrationClicked" CommandParameter="{Binding .}" HorizontalOptions="End" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>

@@ -28,7 +28,6 @@ namespace Koolitused.Views
 
             if (username == "adminmode" && password == "fthpice5vfxaf")
             {
-                SessionManager.SetSession(username);
                 await Navigation.PushAsync(new AdminPage());
                 return;
             }
@@ -39,12 +38,14 @@ namespace Koolitused.Views
             {
                 if (user.Roll == 3)
                 {
-                    SessionManager.SetSession(username);
                     await Navigation.PushAsync(new AdminPage());
+                }
+                else if (user.Roll == 2)
+                {
+                    await Navigation.PushAsync(new OpetajaPage(username));
                 }
                 else
                 {
-                    SessionManager.SetSession(username);
                     await Navigation.PushAsync(new LogitudPage());
                 }
             }

@@ -18,5 +18,8 @@ namespace Koolitused.Models
         public string AdditionalInfo { get; set; }
         public string Username { get; set; }
         public int CourseId { get; set; }
+
+        [Ignore]
+        public string CourseName { get; set; }
     }
 }

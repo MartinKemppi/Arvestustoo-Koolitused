@@ -47,6 +47,13 @@
             HorizontalOptions="CenterAndExpand"
             WidthRequest="200"/>
         <Button
+            x:Name="ManageRegKursileButton"
+            Text="Halda registreeritud kursile"
+            TextColor="Black"
+            Clicked="OnManageRegKursileClicked"
+            HorizontalOptions="CenterAndExpand"
+            WidthRequest="200"/>
+        <Button
             x:Name="Logivalja"
             Text="Logi välja"
             TextColor="Black"

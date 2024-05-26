@@ -150,6 +150,49 @@ namespace Koolitused.Services
         {
             return await _database.Table<Opetaja>().FirstOrDefaultAsync(t => t.Opetajanimi == teacherName);
         }
+        public async Task<Opetaja> GetTeacherByUsernameAsync(string username)
+        {
+            try
+            {
+                var user = await _database.Table<Kasutaja>().FirstOrDefaultAsync(u => u.Kasutajanimi == username);
+                if (user == null) throw new Exception("Kasutajat ei leitud.");
+
+                return await _database.Table<Opetaja>().FirstOrDefaultAsync(o => o.Id == user.Id);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Õpetaja laadimine ebaõnnestus: {ex.Message}");
+            }
+        }
+
+        public async Task<List<Koolitus>> GetCoursesByTeacherIdAsync(int teacherId)
+        {
+            try
+            {
+                return await _database.Table<Koolitus>().Where(k => k.OpetajaId == teacherId).ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Kursuste laadimine ebaõnnestus: {ex.Message}");
+            }
+        }
+
+        public async Task<List<RegKursile>> GetStudentsByCourseIdAsync(int courseId)
+        {
+            try
+            {
+                var students = await _database.Table<RegKursile>().Where(r => r.CourseId == courseId).ToListAsync();
+                foreach (var student in students)
+                {
+                    student.CourseName = (await _database.Table<Koolitus>().FirstOrDefaultAsync(k => k.Id == courseId))?.Koolitusnimi;
+                }
+                return students;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Õpilaste laadimine ebaõnnestus: {ex.Message}");
+            }
+        }
 
         //Roll
         public Task<List<Roll>> GetRolesAsync()
@@ -191,5 +234,40 @@ namespace Koolitused.Services
                 throw new Exception($"Failed to get registered courses: {ex.Message}");
             }
         }
+        public async Task DeleteRegistrationAsync(RegKursile registration)
+        {
+            try
+            {
+                await _database.DeleteAsync(registration);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Не удалось удалить регистрацию курса: {ex.Message}");
+            }
+        }
+        public async Task<List<RegKursile>> GetAllRegistrationsAsync()
+        {
+            try
+            {
+                var registrations = await _database.Table<RegKursile>().ToListAsync();
+
+                foreach (var registration in registrations)
+                {
+                    var course = await _database.Table<Koolitus>().FirstOrDefaultAsync(c => c.Id == registration.CourseId);
+
+                    if (course != null)
+                    {
+                        registration.CourseName = course.Koolitusnimi;
+                    }
+                }
+
+                return registrations;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Не удалось получить все записи из таблицы RegKursile: {ex.Message}");
+            }
+        }
+
     }
 }

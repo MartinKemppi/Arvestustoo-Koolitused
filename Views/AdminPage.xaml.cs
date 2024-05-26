@@ -28,6 +28,10 @@ public partial class AdminPage : ContentPage
     {
         await Navigation.PushAsync(new ManageRolesPage());
     }
+    private async void OnManageRegKursileClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new ManageRegKursilePage());
+    }
 
     private async void OnLogiValjaClicked(object sender, EventArgs e)
     {

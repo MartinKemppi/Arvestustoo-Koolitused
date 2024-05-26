@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Koolitused.Views.OpetajaPage"
+             Title="OpetajaPage">
+    <StackLayout Padding="30,0" Spacing="25" VerticalOptions="Start">
+        <Image Source="tthk.jpg" HeightRequest="240" VerticalOptions="Start" />
+        <Label Text="Tere Õpetaja!" FontSize="36" HorizontalOptions="CenterAndExpand" />
+        <Button x:Name="MyStudentsButton" Text="Minu õpilased" TextColor="Black" Clicked="OnMyStudentsClicked" HorizontalOptions="CenterAndExpand" WidthRequest="200"/>
+        <Button x:Name="LogoutButton" Text="Logi välja" TextColor="Black" Clicked="OnLogoutClicked" HorizontalOptions="CenterAndExpand" WidthRequest="200"/>
+    </StackLayout>
+</ContentPage>
