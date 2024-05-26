@@ -15,6 +15,7 @@ namespace Koolitused.Views
         {
             InitializeComponent();
             _databaseService = new DatabaseService();
+            LoadRoles();
 
             if (teacher != null)
             {
@@ -31,6 +32,21 @@ namespace Koolitused.Views
         {
             TeacherNameEntry.Text = _teacher.Opetajanimi;
             RollEntry.Text = _teacher.Roll.ToString();
+        }
+
+        private async void LoadRoles()
+        {
+            var roles = await _databaseService.GetRolesAsync();
+            foreach (var role in roles)
+            {
+                var roleLabel = new Label
+                {
+                    Text = $"{role.Id}: {role.Rollnimi}",
+                    FontSize = 18,
+                    VerticalOptions = LayoutOptions.Center
+                };
+                RolesContainer.Children.Add(roleLabel);
+            }
         }
 
         private async void OnSaveTeacherClicked(object sender, EventArgs e)

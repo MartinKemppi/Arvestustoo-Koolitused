@@ -53,7 +53,7 @@ namespace Koolitused.Views
             }
             catch (Exception ex)
             {
-                await DisplayAlert("Ошибка", $"Произошла ошибка при сохранении данных: {ex.Message}", "OK");
+                await DisplayAlert("Viga", $"Tekkis viga andmete salvestamisel: {ex.Message}", "OK");
             }
         }
     }

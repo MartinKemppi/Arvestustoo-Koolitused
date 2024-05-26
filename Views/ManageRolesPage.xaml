@@ -4,9 +4,23 @@
              x:Class="Koolitused.Views.ManageRolesPage"
              Title="ManageRolesPage">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <ListView x:Name="RolesListView"
+                  HasUnevenRows="True"
+                  VerticalOptions="FillAndExpand">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10">
+                            <Label Text="{Binding Rollnimi}" FontSize="24" VerticalOptions="Center" />
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                                <Button Text="Muuda" Clicked="OnEditRoleClicked" BindingContext="{Binding .}" />
+                                <Button Text="Kustuta" Clicked="OnDeleteRoleClicked" BindingContext="{Binding .}" />
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Text="Loo uus roll" Clicked="OnCreateRoleClicked" HorizontalOptions="CenterAndExpand" WidthRequest="200"/>
     </VerticalStackLayout>
 </ContentPage>

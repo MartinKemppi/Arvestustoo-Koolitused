@@ -16,6 +16,8 @@
         <Entry x:Name="TeacherNameEntry" Placeholder="Nimi ja perkonnanimi"/>
         <Entry x:Name="RollEntry" Placeholder="Roll" Keyboard="Numeric"/>
 
+        <VerticalStackLayout x:Name="RolesContainer" Spacing="10" />
+
         <Button
             Text="Salvesta"
             Clicked="OnSaveTeacherClicked"
