@@ -19,13 +19,15 @@
             HorizontalOptions="CenterAndExpand"
             WidthRequest="200"/>
 
-        <ListView x:Name="TeachersListView" HasUnevenRows="True" VerticalOptions="FillAndExpand">
+        <ListView x:Name="TeachersListView"
+          HasUnevenRows="True"
+          VerticalOptions="FillAndExpand">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Padding="10">
                             <Label Text="{Binding Opetajanimi}" FontSize="24" VerticalOptions="Center" />
-                            <Label Text="{Binding TeacherRole}" FontSize="18" VerticalOptions="Center" />
+                            <Label Text="{Binding Roll}" FontSize="18" VerticalOptions="Center" />
                             <StackLayout Orientation="Horizontal" HorizontalOptions="End">
                                 <Button Text="Muuda" Clicked="OnEditTeacherClicked" HorizontalOptions="End" />
                                 <Button Text="Kustuta" Clicked="OnDeleteTeacherClicked" HorizontalOptions="End" />

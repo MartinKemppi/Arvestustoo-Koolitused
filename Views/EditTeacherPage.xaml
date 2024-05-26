@@ -1,17 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:models="clr-namespace:Koolitused.Models"
              x:Class="Koolitused.Views.EditTeacherPage"
-             Title="Muuda Õpetajat">
-    <VerticalStackLayout Padding="30,0" Spacing="25" VerticalOptions="Start">
-        <Label Text="Muuda Õpetajat" FontSize="36" HorizontalOptions="CenterAndExpand" />
+             Title="EditTeacherPage">
+    <VerticalStackLayout
+        Padding="30,0"
+        Spacing="25"
+        VerticalOptions="Start">
 
-        <Entry x:Name="TeacherNameEntry" Placeholder="Õpetaja Nimi"/>
+        <Label
+            Text="Õpetaja"
+            FontSize="36"
+            HorizontalOptions="CenterAndExpand" />
 
-        <Picker x:Name="RolePicker" Title="Vali Roll"
-        ItemsSource="{Binding Roles}"
-        ItemDisplayBinding="{Binding Rollnimi}"/>
+        <Entry x:Name="TeacherNameEntry" Placeholder="Nimi ja perkonnanimi"/>
+        <Entry x:Name="RollEntry" Placeholder="Roll" Keyboard="Numeric"/>
 
-        <Button Text="Salvesta" Clicked="OnSaveTeacherClicked" HorizontalOptions="CenterAndExpand" WidthRequest="200"/>
+        <Button
+            Text="Salvesta"
+            Clicked="OnSaveTeacherClicked"
+            HorizontalOptions="CenterAndExpand"
+            WidthRequest="200"/>
     </VerticalStackLayout>
 </ContentPage>
