@@ -14,5 +14,8 @@ namespace Koolitused.Models
         public string Kasutajanimi { get; set; }
         public string Kasutajasalasona { get; set; }
         public int Roll { get; set; }
+
+        [Ignore]
+        public string Rollnimi { get; set; }
     }
 }

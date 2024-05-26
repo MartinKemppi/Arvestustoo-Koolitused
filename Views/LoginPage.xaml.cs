@@ -36,16 +36,24 @@ namespace Koolitused.Views
             var user = await _databaseService.GetUserAsync(username, password);
 
             if (user != null)
-            {               
-                SessionManager.SetSession(username);
-
-                await Navigation.PushAsync(new LogitudPage());
+            {
+                if (user.Roll == 3)
+                {
+                    SessionManager.SetSession(username);
+                    await Navigation.PushAsync(new AdminPage());
+                }
+                else
+                {
+                    SessionManager.SetSession(username);
+                    await Navigation.PushAsync(new LogitudPage());
+                }
             }
             else
             {
                 await DisplayAlert("Viga", "Vale kasutajanimi või salasõna", "OK");
             }
         }
+
 
         private void OnShowPasswordToggled(object sender, ToggledEventArgs e)
         {

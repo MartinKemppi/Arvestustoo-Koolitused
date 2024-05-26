@@ -36,6 +36,18 @@ namespace Koolitused.Services
                             .FirstOrDefaultAsync()
                             .ContinueWith(t => t.Result != null);
         }
+        public Task<int> DeleteUserAsync(Kasutaja user)
+        {
+            return _database.DeleteAsync(user);
+        }
+        public Task<List<Kasutaja>> GetUsersAsync()
+        {
+            return _database.Table<Kasutaja>().ToListAsync();
+        }
+        public Task<int> UpdateUserAsync(Kasutaja user)
+        {
+            return _database.UpdateAsync(user);
+        }
 
         //Koolitus
         public Task<List<Koolitus>> GetCoursesAsync()
@@ -54,6 +66,17 @@ namespace Koolitused.Services
         {
             return _database.DeleteAsync(course);
         }
+        public async Task<List<string>> GetCourseNamesAsync()
+        {
+            var courses = await _database.Table<Koolitus>().ToListAsync();
+            var courseNames = new List<string>();
+            foreach (var course in courses)
+            {
+                courseNames.Add(course.Koolitusnimi);
+            }
+            return courseNames;
+        }
+
 
         //Opetaja
         public Task<int> SaveTeacherAsync(Opetaja teacher)
@@ -76,7 +99,11 @@ namespace Koolitused.Services
         {
             return _database.DeleteAsync(teacher);
 
-        }       
+        }
+        public async Task<Opetaja> GetTeacherByIdAsync(int teacherId)
+        {
+            return await _database.Table<Opetaja>().FirstOrDefaultAsync(teacher => teacher.Id == teacherId);
+        }
 
         //Roll
         public Task<List<Roll>> GetRolesAsync()

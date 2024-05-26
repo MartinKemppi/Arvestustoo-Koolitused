@@ -1,12 +1,44 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:Koolitused.Models"
              x:Class="Koolitused.Views.KasutajaPage"
-             Title="KasutajaPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+             Title="Kasutajad">
+    <VerticalStackLayout
+    Padding="30,0"
+    Spacing="25"
+    VerticalOptions="StartAndExpand">
+
+        <Label
+        Text="Kasutajad"
+        FontSize="36"
+        HorizontalOptions="CenterAndExpand" />
+
+        <ListView x:Name="UsersListView"
+              HasUnevenRows="True"
+              VerticalOptions="FillAndExpand">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10">
+                            <Label Text="{Binding Kasutajanimi}" FontSize="24" VerticalOptions="Center" />
+                            <Label Text="{Binding Rollnimi}" FontSize="18" VerticalOptions="Center" />
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                                <Button Text="Muuda" Clicked="OnEditUserClicked" HorizontalOptions="End" />
+                                <Button Text="Kustuta" Clicked="OnDeleteUserClicked" HorizontalOptions="End" />
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button
+        Text="Lisa kasutaja"
+        Clicked="OnAddUserClicked"
+        HorizontalOptions="CenterAndExpand"
+        WidthRequest="200"
+        VerticalOptions="End"/>
+
     </VerticalStackLayout>
 </ContentPage>

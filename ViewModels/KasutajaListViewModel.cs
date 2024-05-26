@@ -12,53 +12,58 @@ namespace Koolitused.ViewModels
 {
     public class KasutajaListViewModel
     {
-        public ObservableCollection<KasutajaViewModel> Kasutaja { get; set; }
-        public event PropertyChangedEventHandler PropertyChanged;
-        public ICommand CreateKasutajaCommand { get; protected set; }
-        public ICommand DeleteKasutajaCommand { get; protected set; }
-        public ICommand SaveKasutajaCommand { get; protected set; }
-        public ICommand BackCommand { get; protected set; }
-        KasutajaViewModel selectedKasutaja;
-        public INavigation Navigation { get; set; }
-        public KasutajaListViewModel()
-        {
-            Kasutaja = new ObservableCollection<KasutajaViewModel>();
-            CreateKasutajaCommand = new Command(CreateKasutaja);
-            DeleteKasutajaCommand = new Command(DeleteKasutaja);
-            SaveKasutajaCommand = new Command(SaveKasutaja);
-            BackCommand = new Command(Back);
-        }
-        public KasutajaViewModel SelectedFriend
-        {
-            get { return selectedKasutaja; }
-            set
-            {
-                if (selectedKasutaja == value) return;
-                KasutajaViewModel temp = value;
-                selectedKasutaja = null;
-                OnPropertyChanged("SelectedFriend");
-                Navigation.PushAsync(new KasutajaPage(temp));
-            }
-        }
-        protected void OnPropertyChanged(string propName)
-        {
-            if (PropertyChanged == null) return;
-            PropertyChanged(this, new PropertyChangedEventArgs(propName));
-        }
-        private void CreateKasutaja() => Navigation.PushAsync(new KasutajaPage(new KasutajaViewModel() { KasutajaListViewModel = this }));
-        private void Back() => Navigation.PopAsync();
-        private void SaveKasutaja(object friendObj)
-        {
-            if (friendObj is not KasutajaViewModel friend || friend == null || !friend.IsValid || Kasutaja.Contains(friend)) return;
-            Kasutaja.Add(friend);
-            Back();
-        }
-        private void DeleteKasutaja(object friendObj)
-        {
-            if (friendObj is not KasutajaViewModel friend || friend == null) return;
-            Kasutaja.Remove(friend);
-            Back();
-        }
+        //public ObservableCollection<KasutajaViewModel> Kasutajad { get; set; }
+        //public event PropertyChangedEventHandler PropertyChanged;
+        //public ICommand CreateKasutajaCommand { get; protected set; }
+        //public ICommand DeleteKasutajaCommand { get; protected set; }
+        //public ICommand SaveKasutajaCommand { get; protected set; }
+        //public ICommand BackCommand { get; protected set; }
+        //private KasutajaViewModel _selectedKasutaja;
+        //public INavigation Navigation { get; set; }
+
+        //public KasutajaListViewModel()
+        //{
+        //    Kasutajad = new ObservableCollection<KasutajaViewModel>();
+        //    CreateKasutajaCommand = new Command(CreateKasutaja);
+        //    DeleteKasutajaCommand = new Command(DeleteKasutaja);
+        //    SaveKasutajaCommand = new Command<object>(SaveKasutaja);
+        //    BackCommand = new Command(Back);
+        //}
+
+        //public KasutajaViewModel SelectedKasutaja
+        //{
+        //    get { return _selectedKasutaja; }
+        //    set
+        //    {
+        //        if (_selectedKasutaja == value) return;
+        //        _selectedKasutaja = value;
+        //        OnPropertyChanged("SelectedKasutaja");
+        //        Navigation.PushAsync(new KasutajaPage(/*value*/));
+        //    }
+        //}
+
+        //protected void OnPropertyChanged(string propName)
+        //{
+        //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
+        //}
+
+        //private void CreateKasutaja() => Navigation.PushAsync(new KasutajaPage(new KasutajaViewModel() { KasutajaListViewModel = this }));
+
+        //private void Back() => Navigation.PopAsync();
+
+        //private void SaveKasutaja(object friendObj)
+        //{
+        //    if (!(friendObj is KasutajaViewModel friend) || friend == null || !friend.IsValid || Kasutajad.Contains(friend)) return;
+        //    Kasutajad.Add(friend);
+        //    Back();
+        //}
+
+        //private void DeleteKasutaja(object friendObj)
+        //{
+        //    if (!(friendObj is KasutajaViewModel friend) || friend == null) return;
+        //    Kasutajad.Remove(friend);
+        //    Back();
+        //}
 
     }
 }

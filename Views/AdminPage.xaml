@@ -12,36 +12,45 @@
             Source="tthk.jpg"
             HeightRequest="240"                
             VerticalOptions="Start" />
+        
         <Label
             Text="Tere tulemast, Administraator!"
             FontSize="36"
             HorizontalOptions="CenterAndExpand" />
-
+        
         <Button
             x:Name="ManageCoursesButton"
             Text="Halda kursusi"
+            TextColor="Black"
             Clicked="OnManageCoursesClicked"
             HorizontalOptions="CenterAndExpand"
             WidthRequest="200"/>
-
         <Button
             x:Name="ManageUserButton"
             Text="Halda kasutajad"
+            TextColor="Black"
             Clicked="OnManageUserClicked"
             HorizontalOptions="CenterAndExpand"
             WidthRequest="200"/>
-
         <Button
             x:Name="ManageOpetajaButton"
             Text="Halda õpetajad"
+            TextColor="Black"
             Clicked="OnManageOpetajaClicked"
             HorizontalOptions="CenterAndExpand"
             WidthRequest="200"/>
-
         <Button
             x:Name="ManageRollButton"
             Text="Halda rollid"
+            TextColor="Black"
             Clicked="OnManageRollClicked"
+            HorizontalOptions="CenterAndExpand"
+            WidthRequest="200"/>
+        <Button
+            x:Name="Logivalja"
+            Text="Logi välja"
+            TextColor="Black"
+            Clicked="OnLogiValjaClicked"
             HorizontalOptions="CenterAndExpand"
             WidthRequest="200"/>
     </VerticalStackLayout>

@@ -25,7 +25,7 @@ namespace Koolitused
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new AdminPage());
+            MainPage = new NavigationPage(new MainPage());
         }
 
         //protected override async void OnStart()
