@@ -2,8 +2,6 @@ using Koolitused.Services;
 using Koolitused.Models;
 using System;
 using Microsoft.Maui.Controls;
-using Koolitused.Models;
-using Koolitused.Services;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -32,10 +30,10 @@ public partial class LogitudPage : ContentPage
     }
     private async void OnMinukursClicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new InfoPage());
+        await Navigation.PushAsync(new MinuKursPage());
     }
     private async void OnRegistreeriKursileClicked(object sender, EventArgs e)
     {
-        //List<Koolitus> availableCourses = await _databaseService.GetCoursesAsync();
+        await Navigation.PushAsync(new RegCoursePage(SessionManager.LoggedInUsername));
     }
 }

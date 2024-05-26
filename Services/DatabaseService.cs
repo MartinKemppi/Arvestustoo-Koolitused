@@ -17,6 +17,7 @@ namespace Koolitused.Services
             _database.CreateTableAsync<Kasutaja>().Wait();
             _database.CreateTableAsync<Koolitus>().Wait();
             _database.CreateTableAsync<Opetaja>().Wait();
+            _database.CreateTableAsync<RegKursile>().Wait();
         }
 
         //Kasutaja
@@ -56,9 +57,18 @@ namespace Koolitused.Services
         }
 
         //Koolitus
-        public Task<List<Koolitus>> GetCoursesAsync()
+        public async Task<List<Koolitus>> GetCoursesAsync()
         {
-            return _database.Table<Koolitus>().ToListAsync();
+            var courses = await _database.Table<Koolitus>().ToListAsync();
+            foreach (var course in courses)
+            {
+                var teacher = await GetTeacherByIdAsync(course.OpetajaId);
+                if (teacher != null)
+                {
+                    course.Opetajanimi = teacher.Opetajanimi;
+                }
+            }
+            return courses;
         }
         public Task<int> SaveCourseAsync(Koolitus course)
         {
@@ -96,6 +106,17 @@ namespace Koolitused.Services
             {
                 Console.WriteLine($"Ошибка при получении курса из БД: {ex.Message}");
                 return null;
+            }
+        }
+        public async Task<Koolitus> GetCourseByIdAsync(int courseId)
+        {
+            try
+            {
+                return await _database.Table<Koolitus>().FirstOrDefaultAsync(course => course.Id == courseId);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Failed to get course by ID from database: {ex.Message}");
             }
         }
 
@@ -152,6 +173,23 @@ namespace Koolitused.Services
             return _database.Table<Roll>()
                             .Where(r => r.Rollnimi == roleName)
                             .FirstOrDefaultAsync();
+        }
+
+        //Registreerimine kursile
+        public async Task RegisterCourseAsync(RegKursile regInfo)
+        {
+            await _database.InsertAsync(regInfo);
+        }
+        public async Task<List<RegKursile>> GetRegisteredCoursesAsync(string username)
+        {
+            try
+            {
+                return await _database.Table<RegKursile>().Where(x => x.Username == username).ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Failed to get registered courses: {ex.Message}");
+            }
         }
     }
 }

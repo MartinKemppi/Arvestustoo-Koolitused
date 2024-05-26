@@ -11,10 +11,12 @@ namespace Koolitused.Models
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
-        public string Nimi { get; set; }
-        public string Perenimi { get; set; }
-        public int kursId { get; set; }
-        public virtual Koolitus kursid { get; set; }
-        public string KasutajaNimi { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string Phone { get; set; }
+        public string Email { get; set; }
+        public string AdditionalInfo { get; set; }
+        public string Username { get; set; }
+        public int CourseId { get; set; }
     }
 }

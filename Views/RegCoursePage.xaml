@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:Koolitused.Models"
+             x:Class="Koolitused.Views.RegCoursePage"
+             Title="Registration Page">
+
+    <VerticalStackLayout Padding="20">
+
+        <Label Text="Valige kursus" FontSize="Large" HorizontalOptions="Center" Margin="0,10"/>
+
+        <ListView x:Name="CoursesListView"
+                  HasUnevenRows="True"
+                  VerticalOptions="FillAndExpand">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10">
+                            <Label Text="{Binding Koolitusnimi}" FontSize="Medium" VerticalOptions="Center" />
+                            <Label Text="{Binding Opetajanimi}" FontSize="Medium" VerticalOptions="Center" />
+                            <Label Text="{Binding Kuupaev}" FontSize="Medium" VerticalOptions="Center" />
+                            <Label Text="{Binding Hind}" FontSize="Medium" VerticalOptions="Center" />
+                            <Button Text="Registreeri" Clicked="OnRegisterClicked" CommandParameter="{Binding .}" HorizontalOptions="End"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </VerticalStackLayout>
+
+</ContentPage>
