@@ -2,8 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:models="clr-namespace:Koolitused.Models"
-             x:Class="Koolitused.Views.EditCoursePage"
-             Title="Muuda Kursust">
+             x:Class="Koolitused.Views.EditCoursePage">
     <VerticalStackLayout
         Padding="30,0"
         Spacing="25"
