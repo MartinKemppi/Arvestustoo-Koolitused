@@ -2,7 +2,8 @@
 <Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Koolitused"
-             x:Class="Koolitused.App">
+             x:Class="Koolitused.App"     
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -15,7 +16,11 @@
                     <Style TargetType="Button">
                         <Setter Property="BackgroundColor" Value="#700000"/>
                         <Setter Property="TextColor" Value="White"/>
-                        <Setter Property="CornerRadius" Value="5"/>
+                        <Setter Property="CornerRadius" Value="18"/>
+                    </Style>
+                    <Style TargetType="NavigationPage">
+                        <Setter Property="BarBackgroundColor" Value="#7F1425"/>
+                        <Setter Property="BarTextColor" Value="White"/>
                     </Style>
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
