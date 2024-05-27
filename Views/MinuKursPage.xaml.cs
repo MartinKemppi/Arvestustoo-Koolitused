@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using Koolitused.Services;
+using Koolitused.Models;
 using Microsoft.Maui.Controls;
 
 namespace Koolitused.Views
@@ -8,7 +9,7 @@ namespace Koolitused.Views
     public partial class MinuKursPage : ContentPage
     {
         private readonly DatabaseService _databaseService;
-        public ObservableCollection<string> CourseList { get; set; } = new ObservableCollection<string>();
+        public ObservableCollection<CourseDetailsViewModel> CourseList { get; set; } = new ObservableCollection<CourseDetailsViewModel>();
 
         public MinuKursPage()
         {
@@ -25,11 +26,17 @@ namespace Koolitused.Views
 
                 foreach (var regCourse in registeredCourses)
                 {
-                    var course = await _databaseService.GetCourseByIdAsync(regCourse.CourseId);
+                    var course = await _databaseService.GetCourseByIdAsyncs(regCourse.CourseId);
                     if (course != null)
                     {
-                        var courseInfo = $"{course.Koolitusnimi}, {course.Kuupaev}";
-                        CourseList.Add(courseInfo);
+                        var courseDetails = new CourseDetailsViewModel
+                        {
+                            CourseName = course.Koolitusnimi,
+                            CourseDate = course.Kuupaev,
+                            TeacherName = course.Opetajanimi,
+                            Students = await _databaseService.GetStudentsByCourseIdAsync(course.Id)
+                        };
+                        CourseList.Add(courseDetails);
                     }
                 }
 

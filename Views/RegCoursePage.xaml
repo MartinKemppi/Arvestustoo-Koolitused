@@ -15,10 +15,10 @@
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Padding="10">
-                            <Label Text="{Binding Koolitusnimi}" FontSize="Medium" VerticalOptions="Center" />
-                            <Label Text="{Binding Opetajanimi}" FontSize="Medium" VerticalOptions="Center" />
-                            <Label Text="{Binding Kuupaev}" FontSize="Medium" VerticalOptions="Center" />
-                            <Label Text="{Binding Hind}" FontSize="Medium" VerticalOptions="Center" />
+                            <Label TextColor="Black" Text="{Binding Koolitusnimi}" FontSize="Medium" VerticalOptions="Center" />
+                            <Label TextColor="Black" Text="{Binding Opetajanimi}" FontSize="Medium" VerticalOptions="Center" />
+                            <Label TextColor="Black" Text="{Binding Kuupaev}" FontSize="Medium" VerticalOptions="Center" />
+                            <Label TextColor="Black" Text="{Binding Hind}" FontSize="Medium" VerticalOptions="Center" />
                             <Button Text="Registreeri" Clicked="OnRegisterClicked" CommandParameter="{Binding .}" HorizontalOptions="End"/>
                         </StackLayout>
                     </ViewCell>

@@ -10,12 +10,12 @@
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout>
-                            <Label Text="{Binding .}" FontSize="Subtitle" />
+                            <Label TextColor="Black" Text="{Binding CourseName}" FontSize="Subtitle" />
+                            <Label TextColor="Black" Text="{Binding CourseDate}" FontSize="Body" />
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
     </StackLayout>
 </ContentPage>

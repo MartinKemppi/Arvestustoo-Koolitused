@@ -5,32 +5,29 @@
     <StackLayout Padding="20">
         <Label Text="Teie kursused ja õpilased" FontSize="Title" HorizontalOptions="CenterAndExpand" Margin="0,20,0,10" />
 
-        <ListView x:Name="CoursesListView" VerticalOptions="FillAndExpand" HasUnevenRows="True">
-            <ListView.ItemTemplate>
+        <CollectionView x:Name="CoursesListView" VerticalOptions="FillAndExpand">
+            <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <ViewCell>
-                        <StackLayout>
-                            <Label Text="{Binding CourseName}" FontSize="Subtitle" />
-                            <Label Text="{Binding CourseDate}" FontSize="Body" />
-                            <Label Text="{Binding TeacherName}" FontSize="Body" FontAttributes="Italic" />
-                            <ListView ItemsSource="{Binding Students}" SeparatorVisibility="None">
-                                <ListView.ItemTemplate>
-                                    <DataTemplate>
-                                        <ViewCell>
-                                            <StackLayout>
-                                                <Label Text="{Binding Name}" FontSize="Body" />
-                                                <Label Text="{Binding Surname}" FontSize="Body" />
-                                                <Label Text="{Binding Phone}" FontSize="Body" />
-                                                <Label Text="{Binding Email}" FontSize="Body" />
-                                            </StackLayout>
-                                        </ViewCell>
-                                    </DataTemplate>
-                                </ListView.ItemTemplate>
-                            </ListView>
+                    <StackLayout>
+                        <Label TextColor="Black" Text="{Binding CourseName}" FontSize="Subtitle" />
+                        <Label TextColor="Black" Text="{Binding CourseDate}" FontSize="Body" />
+                        <Label TextColor="Black" Text="{Binding TeacherName}" FontSize="Body" FontAttributes="Italic" />
+
+                        <StackLayout BindableLayout.ItemsSource="{Binding Students}">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout>
+                                        <Label TextColor="Black" Text="{Binding Name}" FontSize="Body" />
+                                        <Label TextColor="Black" Text="{Binding Surname}" FontSize="Body" />
+                                        <Label TextColor="Black" Text="{Binding Phone}" FontSize="Body" />
+                                        <Label TextColor="Black" Text="{Binding Email}" FontSize="Body" />
+                                    </StackLayout>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
                         </StackLayout>
-                    </ViewCell>
+                    </StackLayout>
                 </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </StackLayout>
 </ContentPage>

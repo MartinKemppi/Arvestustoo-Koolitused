@@ -9,14 +9,15 @@
         VerticalOptions="Start">
 
         <Label
+            TextColor="Black"
             Text="Kursuse andmed"
             FontSize="36"
             HorizontalOptions="CenterAndExpand" />
 
-        <Entry x:Name="CourseNameEntry" Placeholder="Kursuse nimi"/>
-        <Picker x:Name="TeacherPicker" Title="Vali Õpetaja" />
-        <DatePicker x:Name="CourseDatePicker" Format="D" />
-        <Entry x:Name="PriceEntry" Placeholder="Hind" Keyboard="Numeric"/>
+        <Entry TextColor="Black" x:Name="CourseNameEntry" Placeholder="Kursuse nimi"/>
+        <Picker TextColor="Black" x:Name="TeacherPicker" Title="Vali Õpetaja" />
+        <DatePicker TextColor="Black" x:Name="CourseDatePicker" Format="D" />
+        <Entry TextColor="Black" x:Name="PriceEntry" Placeholder="Hind" Keyboard="Numeric"/>
 
         <Button
             Text="Salvesta"

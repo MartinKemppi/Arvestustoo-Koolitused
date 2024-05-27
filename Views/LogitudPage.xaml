@@ -13,46 +13,43 @@
             HorizontalOptions="Center" />
 
         <Label
+            TextColor="Black"
             Text="Tööstushariduskeskus on piirkonna suurim kutsehariduskool"
-            FontSize="24"
+            FontSize="22"
             VerticalOptions="Center" />
 
 
         <Label
+            TextColor="Black"
             Text="Meie koolitus võimaldab tõsta oma tööalaseid teadmisi ja oskusi, et saada konkurentsivõimelisemaks tööjõuturul."
-            FontSize="18"
+            FontSize="16"
             HorizontalOptions="Center" />
 
         <Button
             x:Name="Logivalja"
             Text="Logi välja"
-            TextColor="Black"
             Clicked="OnLogiValjaClicked"
             HorizontalOptions="CenterAndExpand"
             WidthRequest="200"/>
         <Button
             x:Name="Kursid"
             Text="Kursid"
-            TextColor="Black"
             WidthRequest="200"
             Clicked="OnKursClicked" />
         <Button
             x:Name="RegistreeriKursileButton"
             Text="Registreeri kursile"
-            TextColor="Black"
             Clicked="OnRegistreeriKursileClicked"
             HorizontalOptions="CenterAndExpand"
             WidthRequest="200"/>
         <Button
             x:Name="Minukursid"
             Text="Minu kursid"
-            TextColor="Black"
             WidthRequest="200"
             Clicked="OnMinukursClicked" />
         <Button
             x:Name="Info"
             Text="Info"
-            TextColor="Black"
             WidthRequest="200"
             Clicked="OnInfoClicked" />
     </VerticalStackLayout>

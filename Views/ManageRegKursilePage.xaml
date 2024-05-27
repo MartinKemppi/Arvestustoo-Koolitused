@@ -11,12 +11,12 @@
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Orientation="Vertical" Padding="10">
-                            <Label Text="{Binding Name}" FontSize="Medium" />
-                            <Label Text="{Binding Surname}" FontSize="Medium" />
-                            <Label Text="{Binding Phone}" FontSize="Medium" />
-                            <Label Text="{Binding Email}" FontSize="Medium" />
-                            <Label Text="{Binding Username}" FontSize="Medium" />
-                            <Label Text="{Binding CourseName}" FontSize="Medium" />
+                            <Label TextColor="Black" Text="{Binding Name}" FontSize="Medium" />
+                            <Label TextColor="Black" Text="{Binding Surname}" FontSize="Medium" />
+                            <Label TextColor="Black" Text="{Binding Phone}" FontSize="Medium" />
+                            <Label TextColor="Black" Text="{Binding Email}" FontSize="Medium" />
+                            <Label TextColor="Black" Text="{Binding Username}" FontSize="Medium" />
+                            <Label TextColor="Black" Text="{Binding CourseName}" FontSize="Medium" />
                             <Button Text="Kustuta" Clicked="OnDeleteRegistrationClicked" CommandParameter="{Binding .}" HorizontalOptions="End" />
                         </StackLayout>
                     </ViewCell>

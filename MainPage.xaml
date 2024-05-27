@@ -27,28 +27,23 @@
         <Button
                 x:Name="Login"
                 Text="Login"
-                TextColor="Black"
                 Clicked="OnLoginClicked"
                 HorizontalOptions="CenterAndExpand"
                 WidthRequest="200"/>
-
         <Button
                 x:Name="Registreeri"
                 Text="Registreeri"
-                TextColor="Black"
                 Clicked="OnRegClicked"
                 HorizontalOptions="CenterAndExpand"
                 WidthRequest="200"/>
         <Button
                 x:Name="Kursid"
                 Text="Kursid"
-                TextColor="Black"
                 WidthRequest="200"
                 Clicked="OnKursClicked" />
         <Button
                 x:Name="Info"
                 Text="Info"
-                TextColor="Black"
                 WidthRequest="200"
                 Clicked="OnInfoClicked" />
     </VerticalStackLayout>

@@ -8,6 +8,16 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+                <ResourceDictionary>
+                    <Style TargetType="Label">
+                        <Setter Property="TextColor" Value="Black"/>
+                    </Style>
+                    <Style TargetType="Button">
+                        <Setter Property="BackgroundColor" Value="#700000"/>
+                        <Setter Property="TextColor" Value="White"/>
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

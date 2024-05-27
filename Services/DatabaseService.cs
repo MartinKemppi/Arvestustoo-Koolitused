@@ -18,6 +18,7 @@ namespace Koolitused.Services
             _database.CreateTableAsync<Koolitus>().Wait();
             _database.CreateTableAsync<Opetaja>().Wait();
             _database.CreateTableAsync<RegKursile>().Wait();
+            _database.CreateTableAsync<Roll>().Wait();
         }
 
         //Kasutaja
@@ -109,6 +110,17 @@ namespace Koolitused.Services
             }
         }
         public async Task<Koolitus> GetCourseByIdAsync(int courseId)
+        {
+            try
+            {
+                return await _database.Table<Koolitus>().FirstOrDefaultAsync(course => course.Id == courseId);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Failed to get course by ID from database: {ex.Message}");
+            }
+        }
+        public async Task<Koolitus> GetCourseByIdAsyncs(int courseId)
         {
             try
             {

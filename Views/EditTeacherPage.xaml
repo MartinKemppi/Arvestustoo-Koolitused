@@ -8,12 +8,13 @@
         VerticalOptions="Start">
 
         <Label
+            TextColor="Black"
             Text="Õpetaja"
             FontSize="36"
             HorizontalOptions="CenterAndExpand" />
 
-        <Entry x:Name="TeacherNameEntry" Placeholder="Nimi ja perkonnanimi"/>
-        <Entry x:Name="RollEntry" Placeholder="Roll" Keyboard="Numeric"/>
+        <Entry TextColor="Black" x:Name="TeacherNameEntry" Placeholder="Nimi ja perkonnanimi"/>
+        <Entry TextColor="Black" x:Name="RollEntry" Placeholder="Roll" Keyboard="Numeric"/>
 
         <VerticalStackLayout x:Name="RolesContainer" Spacing="10" />
 

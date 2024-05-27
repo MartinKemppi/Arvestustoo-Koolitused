@@ -8,10 +8,10 @@
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout>
-                            <Label Text="{Binding Koolitusnimi}" />
-                            <Label Text="{Binding Opetajanimi}" />
-                            <Label Text="{Binding Kuupaev}" />
-                            <Label Text="{Binding Hind, StringFormat='{0} €'}" />
+                            <Label TextColor="Black" Text="{Binding Koolitusnimi}" />
+                            <Label TextColor="Black" Text="{Binding Opetajanimi}" />
+                            <Label TextColor="Black" Text="{Binding Kuupaev}" />
+                            <Label TextColor="Black" Text="{Binding Hind, StringFormat='{0} €'}" />
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
