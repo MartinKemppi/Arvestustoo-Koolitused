@@ -4,8 +4,8 @@
              x:Class="Koolitused.Views.OpetajaPage">
     <StackLayout Padding="30,0" Spacing="25" VerticalOptions="Start">
         <Image Source="tthk.jpg" HeightRequest="240" VerticalOptions="Start" />
-        <Label Text="Tere Õpetaja!" FontSize="36" HorizontalOptions="CenterAndExpand" />
-        <Button x:Name="MyStudentsButton" Text="Minu õpilased" TextColor="Black" Clicked="OnMyStudentsClicked" HorizontalOptions="CenterAndExpand" WidthRequest="200"/>
-        <Button x:Name="LogoutButton" Text="Logi välja" TextColor="Black" Clicked="OnLogoutClicked" HorizontalOptions="CenterAndExpand" WidthRequest="200"/>
+        <Label TextColor="Black" Text="Tere Õpetaja!" FontSize="36" HorizontalOptions="CenterAndExpand" />
+        <Button x:Name="MyStudentsButton" Text="Minu õpilased" Clicked="OnMyStudentsClicked" HorizontalOptions="CenterAndExpand" WidthRequest="200"/>
+        <Button x:Name="LogoutButton" Text="Logi välja" Clicked="OnLogoutClicked" HorizontalOptions="CenterAndExpand" WidthRequest="200"/>
     </StackLayout>
 </ContentPage>

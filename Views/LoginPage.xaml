@@ -42,8 +42,8 @@
                 <HorizontalStackLayout>
                     <Switch
                         x:Name="SalasonaSwitch"
-                        OnColor="Black"
-                        ThumbColor="Black"
+                        OnColor="#7F1425"
+                        ThumbColor="#700000"
                         VerticalOptions="Center"
                         Toggled="OnShowPasswordToggled"/>
                     <Label

@@ -8,11 +8,12 @@
         VerticalOptions="Start">
 
         <Label
+            TextColor="Black"
             Text="Rolli andmed"
             FontSize="36"
             HorizontalOptions="CenterAndExpand" />
 
-        <Entry x:Name="RoleNameEntry" Placeholder="Rolli nimi"/>
+        <Entry TextColor="Black" x:Name="RoleNameEntry" Placeholder="Rolli nimi"/>
 
         <Button
             Text="Salvesta"

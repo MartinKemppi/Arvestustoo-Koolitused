@@ -18,6 +18,7 @@ namespace Koolitused.Services
             _database.CreateTableAsync<Koolitus>().Wait();
             _database.CreateTableAsync<Opetaja>().Wait();
             _database.CreateTableAsync<RegKursile>().Wait();
+            _database.CreateTableAsync<Roll>().Wait();
         }
 
         //Kasutaja

@@ -10,18 +10,18 @@
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout>
-                            <Label Text="{Binding CourseName}" FontSize="Subtitle" />
-                            <Label Text="{Binding CourseDate}" FontSize="Body" />
-                            <Label Text="{Binding TeacherName}" FontSize="Body" FontAttributes="Italic" />
+                            <Label TextColor="Black" Text="{Binding CourseName}" FontSize="Subtitle" />
+                            <Label TextColor="Black" Text="{Binding CourseDate}" FontSize="Body" />
+                            <Label TextColor="Black" Text="{Binding TeacherName}" FontSize="Body" FontAttributes="Italic" />
                             <ListView ItemsSource="{Binding Students}" SeparatorVisibility="None">
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
                                         <ViewCell>
                                             <StackLayout>
-                                                <Label Text="{Binding Name}" FontSize="Body" />
-                                                <Label Text="{Binding Surname}" FontSize="Body" />
-                                                <Label Text="{Binding Phone}" FontSize="Body" />
-                                                <Label Text="{Binding Email}" FontSize="Body" />
+                                                <Label TextColor="Black" Text="{Binding Name}" FontSize="Body" />
+                                                <Label TextColor="Black" Text="{Binding Surname}" FontSize="Body" />
+                                                <Label TextColor="Black" Text="{Binding Phone}" FontSize="Body" />
+                                                <Label TextColor="Black" Text="{Binding Email}" FontSize="Body" />
                                             </StackLayout>
                                         </ViewCell>
                                     </DataTemplate>

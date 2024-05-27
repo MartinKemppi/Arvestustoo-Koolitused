@@ -10,27 +10,28 @@
 
         <Label
             Text="Kasutaja andmed"
+            TextColor="Black"
             FontSize="36"
             HorizontalOptions="CenterAndExpand" />
 
-        <Entry x:Name="UsernameEntry" Placeholder="Kasutajanimi" />
-        <Entry x:Name="PasswordEntry" Placeholder="Salasõna" IsPassword="True" />
+        <Entry TextColor="Black" x:Name="UsernameEntry" Placeholder="Kasutajanimi" />
+        <Entry TextColor="Black" x:Name="PasswordEntry" Placeholder="Salasõna" IsPassword="True" />
 
         <HorizontalStackLayout>
             <Switch
                 x:Name="ShowPasswordSwitch"
-                OnColor="White"
-                ThumbColor="White"
+                OnColor="#7F1425"
+                ThumbColor="#700000"
                 IsToggled="False"
                 VerticalOptions="Center"
                 Toggled="OnShowPasswordToggled"/>
             <Label
                 Text="Näita Salasõna"
                 VerticalOptions="Center"
-                TextColor="White"/>
+                TextColor="Black"/>
         </HorizontalStackLayout>
 
-        <Picker x:Name="RolePicker" Title="Vali Roll" />
+        <Picker TextColor="Black" x:Name="RolePicker" Title="Vali Roll" />
 
         <Button
             Text="Salvesta"

@@ -10,7 +10,7 @@
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Padding="10">
-                            <Label Text="{Binding Rollnimi}" FontSize="24" VerticalOptions="Center" />
+                            <Label TextColor="Black" Text="{Binding Rollnimi}" FontSize="24" VerticalOptions="Center" />
                             <StackLayout Orientation="Horizontal" HorizontalOptions="End">
                                 <Button Text="Muuda" Clicked="OnEditRoleClicked" BindingContext="{Binding .}" />
                                 <Button Text="Kustuta" Clicked="OnDeleteRoleClicked" BindingContext="{Binding .}" />

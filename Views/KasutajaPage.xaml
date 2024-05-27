@@ -20,8 +20,8 @@
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Padding="10">
-                            <Label Text="{Binding Kasutajanimi}" FontSize="24" VerticalOptions="Center" />
-                            <Label Text="{Binding Rollnimi}" FontSize="18" VerticalOptions="Center" />
+                            <Label TextColor="Black" Text="{Binding Kasutajanimi}" FontSize="24" VerticalOptions="Center" />
+                            <Label TextColor="Black" Text="{Binding Rollnimi}" FontSize="18" VerticalOptions="Center" />
                             <StackLayout Orientation="Horizontal" HorizontalOptions="End">
                                 <Button Text="Muuda" Clicked="OnEditUserClicked" HorizontalOptions="End" />
                                 <Button Text="Kustuta" Clicked="OnDeleteUserClicked" HorizontalOptions="End" />

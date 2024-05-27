@@ -10,7 +10,7 @@
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout>
-                            <Label Text="{Binding .}" FontSize="Subtitle" />
+                            <Label TextColor="Black" Text="{Binding .}" FontSize="Subtitle" />
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

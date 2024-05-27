@@ -25,7 +25,7 @@
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Padding="10">
-                            <Label Text="{Binding Opetajanimi}" FontSize="24" VerticalOptions="Center" />
+                            <Label TextColor="Black" Text="{Binding Opetajanimi}" FontSize="24" VerticalOptions="Center" />
                             <StackLayout Orientation="Horizontal" HorizontalOptions="End">
                                 <Button Text="Muuda" Clicked="OnEditTeacherClicked" HorizontalOptions="End" />
                                 <Button Text="Kustuta" Clicked="OnDeleteTeacherClicked" HorizontalOptions="End" />
