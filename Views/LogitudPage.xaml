@@ -13,12 +13,14 @@
             HorizontalOptions="Center" />
 
         <Label
+            TextColor="Black"
             Text="Tööstushariduskeskus on piirkonna suurim kutsehariduskool"
             FontSize="22"
             VerticalOptions="Center" />
 
 
         <Label
+            TextColor="Black"
             Text="Meie koolitus võimaldab tõsta oma tööalaseid teadmisi ja oskusi, et saada konkurentsivõimelisemaks tööjõuturul."
             FontSize="16"
             HorizontalOptions="Center" />

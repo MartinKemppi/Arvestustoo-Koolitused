@@ -20,7 +20,7 @@
         <HorizontalStackLayout>
             <Switch
                 x:Name="ShowPasswordSwitch"
-                OnColor="#7F1425"
+                OnColor="#a42d40"
                 ThumbColor="#700000"
                 IsToggled="False"
                 VerticalOptions="Center"
