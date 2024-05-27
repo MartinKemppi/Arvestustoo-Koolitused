@@ -34,7 +34,7 @@
             x:Name="Kursid"
             Text="Kursid"
             TextColor="Black"
-            WidthRequest="100"
+            WidthRequest="200"
             Clicked="OnKursClicked" />
         <Button
             x:Name="RegistreeriKursileButton"
@@ -47,13 +47,13 @@
             x:Name="Minukursid"
             Text="Minu kursid"
             TextColor="Black"
-            WidthRequest="100"
+            WidthRequest="200"
             Clicked="OnMinukursClicked" />
         <Button
             x:Name="Info"
             Text="Info"
             TextColor="Black"
-            WidthRequest="100"
+            WidthRequest="200"
             Clicked="OnInfoClicked" />
     </VerticalStackLayout>
 </ContentPage>

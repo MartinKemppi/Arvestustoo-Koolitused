@@ -17,7 +17,7 @@
                             <Label Text="{Binding Email}" FontSize="Medium" />
                             <Label Text="{Binding Username}" FontSize="Medium" />
                             <Label Text="{Binding CourseName}" FontSize="Medium" />
-                            <Button Text="Delete" Clicked="OnDeleteRegistrationClicked" CommandParameter="{Binding .}" HorizontalOptions="End" />
+                            <Button Text="Kustuta" Clicked="OnDeleteRegistrationClicked" CommandParameter="{Binding .}" HorizontalOptions="End" />
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

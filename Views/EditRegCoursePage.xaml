@@ -3,11 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Koolitused.Views.EditRegCoursePage">
     <VerticalStackLayout Padding="30,0" Spacing="20">
-        <Entry Placeholder="First Name" x:Name="FirstNameEntry" />
-        <Entry Placeholder="Last Name" x:Name="LastNameEntry" />
-        <Entry Placeholder="Phone" x:Name="PhoneEntry" />
+        <Entry Placeholder="Eesnimi" x:Name="FirstNameEntry" />
+        <Entry Placeholder="Perekonnanimi" x:Name="LastNameEntry" />
+        <Entry Placeholder="Telefon" x:Name="PhoneEntry" />
         <Entry Placeholder="Email" x:Name="EmailEntry" />
-        <Entry Placeholder="Additional Info" x:Name="AdditionalInfoEntry" />
-        <Button Text="Register" Clicked="OnRegisterClicked" />
+        <Entry Placeholder="Lisa info" x:Name="AdditionalInfoEntry" />
+        <Button Text="Registreeri" Clicked="OnRegisterClicked" />
     </VerticalStackLayout>
 </ContentPage>
